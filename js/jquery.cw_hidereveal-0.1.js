@@ -26,10 +26,10 @@
         // Merge default and user settings
         var settings = $.extend({}, defaults, settings);
 
-        // Get the link
-        var link = this;
-
         this.each(function(){
+            // Get the link
+            var link = this;
+
             // Get the container id
             var container = $('#'+link.data('id'));
 
@@ -37,23 +37,19 @@
             container.css({
                 'display' : 'none'
             });
-        });
 
-        $(this).click(function () {
-            // Add class cw_close to any div you want to automatically close
-            $('.cw_close').slideUp(settings.speed, settings.easing);
+            link.on('click',function(){
+                // Add class cw_close to any div you want to automatically close
+                $('.cw_close').slideUp(settings.speed, settings.easing);
 
-            var object = $(this);
+                $(container).slideToggle(settings.speed, settings.easing, function() {
+                    if(settings.changeText==true){
+                        $(container).is(":visible") ? container.text(settings.hideText) : container.text(settings.showText);
+                    }
+                });
 
-            var object_id = '#'+object.data('id');
-
-            $(object_id).slideToggle(settings.speed, settings.easing, function() {
-                if(settings.changeText==true){
-                    $(object_id).is(":visible") ? object.text(settings.hideText) : object.text(settings.showText);
-                }
+                return false;
             });
-
-            return false;
         });
     };
 })(jQuery);
