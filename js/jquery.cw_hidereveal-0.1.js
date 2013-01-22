@@ -26,15 +26,18 @@
         // Merge default and user settings
         var settings = $.extend({}, defaults, settings);
 
+        // Get the link
+        var link = this;
+
         // Get the container id
-        var container = this.data('id');
+        var container = $('#'+this.data('id'));
 
         // Auto hide the divs
-        $(container).load(function(){
+        $(container).each(function(){
             $(this).css({
                 display:none
             });
-        })
+        });
 
         this.each(function(){
 
