@@ -29,18 +29,14 @@
         // Get the link
         var link = this;
 
-        // Get the container id
-        var container = $('#'+link.data('id'));
+        this.each(function(){
+            // Get the container id
+            var container = $('#'+link.data('id'));
 
-        // Auto hide the divs
-        container.each(function(){
+            // Auto hide the divs
             container.css({
                 'display' : 'none'
             });
-        });
-
-        this.each(function(){
-
         });
 
         $(this).click(function () {
