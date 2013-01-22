@@ -28,7 +28,7 @@
 
         this.each(function(){
             // Get the link
-            var link = this;
+            var link = $(this);
 
             // Get the container id
             var container = $('#'+link.data('id'));
