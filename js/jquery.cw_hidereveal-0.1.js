@@ -26,17 +26,30 @@
         // Merge default and user settings
         var settings = $.extend({}, defaults, settings);
 
+        // Get the container id
+        var container = this.data('id');
+
+        // Auto hide the divs
+        $(container).load(function(){
+            $(this).css({
+                display:none
+            });
+        })
+
+        this.each(function(){
+
+        });
+
         $(this).click(function () {
             // Add class cw_close to any div you want to automatically close
             $('.cw_close').slideUp(settings.speed, settings.easing);
 
             var object = $(this);
 
-            var object_id = object.data('id');
+            var object_id = '#'+object.data('id');
 
             $(object_id).slideToggle(settings.speed, settings.easing, function() {
-
-                if(settings.changeText==1){
+                if(settings.changeText==true){
                     $(object_id).is(":visible") ? object.text(settings.hideText) : object.text(settings.showText);
                 }
             });
