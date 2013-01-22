@@ -44,7 +44,7 @@
 
                 $(container).slideToggle(settings.speed, settings.easing, function() {
                     if(settings.changeText==true){
-                        $(container).is(":visible") ? container.text(settings.hideText) : container.text(settings.showText);
+                        $(container).is(":visible") ? link.text(settings.hideText) : link.text(settings.showText);
                     }
                 });
 
