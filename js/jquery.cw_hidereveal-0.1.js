@@ -33,8 +33,10 @@
         var container = $('#'+link.data('id'));
 
         // Auto hide the divs
-        container.css({
-            display:none
+        container.each(function(){
+            container.css({
+                'display' : 'none'
+            });
         });
 
         this.each(function(){
