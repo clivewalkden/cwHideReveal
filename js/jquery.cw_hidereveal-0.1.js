@@ -30,11 +30,11 @@
         var link = this;
 
         // Get the container id
-        var container = $('#'+this.data('id'));
+        var container = $('#'+link.data('id'));
 
         // Auto hide the divs
         $(container).each(function(){
-            $(this).css({
+            $(container).css({
                 display:none
             });
         });
