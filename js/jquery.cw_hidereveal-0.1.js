@@ -12,7 +12,7 @@
  */
 
 (function ($) {
-    $.fn.CWHideReveal = function (settings) {
+    $.fn.CWHideReveal = function (custom) {
 
         // Default plugin settings
         var defaults = {
@@ -20,11 +20,12 @@
             easing: '',
             changeText: false,
             showText: 'Show',
-            hideText: 'Hide'
+            hideText: 'Hide',
+            accordian: false
         };
 
         // Merge default and user settings
-        var settings = $.extend({}, defaults, settings);
+        var settings = $.extend({}, defaults, custom);
 
         this.each(function(){
             // Get the link
@@ -38,9 +39,16 @@
                 'display' : 'none'
             });
 
-            link.on('click',function(){
-                // Add class cw_close to any div you want to automatically close
-                $('.cw_close').slideUp(settings.speed, settings.easing);
+            // When a link is clicked toggle the container
+            link.on('click',function(e){
+                // Prevent the default action of the link
+                e.preventDefault();
+
+                // If accordian is set automatically close all open divs
+                // NOT SURE THIS WORKS HERE
+                if(settings.accordian==true){
+                    link.slideUp(settings.speed, settings.easing);
+                }
 
                 $(container).slideToggle(settings.speed, settings.easing, function() {
                     if(settings.changeText==true){
