@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<title>CWHideReveal</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width">
+<link href="css/main.css" rel="stylesheet">
+<link href="css/jquery.cw_hidereveal-0.1.css" rel="stylesheet">
+</head>
+<body>
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+<div id="container">
+    <header>
+
+    </header>
+
+    <div role="main" id="content">
+        <h1>CW HideReveal v0.1</h1>
+        <p>This script enables the hide reveal ability that so many sites use.</p>
+        <p>Basic usage</p>
+        <a href="#" data-id="example-content" class="cwhidereveal">Show Content</a>
+        <div id="example-content">
+            This is the hidden content you have just revealed
+        </div>
+        <h3>Configuration Options</h3>
+        <p>The script has 5 options:</p>
+        <ul>
+            <li>speed</li>
+            <li>easing</li>
+            <li>changeText</li>
+            <li>showText</li>
+            <li>hideText</li>
+            <li>accordian</li>
+        </ul>
+        <h4>speed</h4>
+        <p>The speed in which the animation completes.</p>
+        <p>This is the amount of time it takes the hidden div to be shown or hidden.</p>
+        <p>default: 300</p>
+        <h4>easing</h4>
+        <p>Easing type to use.</p>
+        <p>If you want easing in your animation include it here. If you include the jQuery UI easing plugin you will have more options available.</p>
+        <p>default: ''</p>
+        <h4>changeText</h4>
+        <p>Change the link text.</p>
+        <p>If you want to specify the text that the link element updates to on click then set this to true.</p>
+        <p>default: false</p>
+        <h4>showText</h4>
+        <p>The text shown to show content.</p>
+        <p>The text you want the button to display when the content is hidden.</p>
+        <p>default: 'Show</p>
+        <h4>hideText</h4>
+        <p>The text shown to hide content.</p>
+        <p>The text you want the button to display when the content is hidden.</p>
+        <p>default: 'Hide'</p>
+        <h4>accordian</h4>
+        <p>Hide other hidereveal content when 1 link is clicked.</p>
+        <p>If you want the script to act like an accordian and close other hidereveal content when another link is clicked then set this to true.</p>
+        <p>default: false</p>
+        <h4>openClass</h4>
+        <p>Class applied to open containers.</p>
+        <p>This is the class that is applied to containers once they have reached their open status.</p>
+        <p>default: false</p>
+        <br>
+        <div class="changelog">
+            <h4>v0.1 - <span>22nd January 2013</span></h4>
+            <p>Created the first version of the script based on previous created scripts.</p>
+        </div>
+    </div>
+
+    <footer>
+
+    </footer>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/js/jquery-1.7.1.min.js"><\/script>')</script>
+
+<script src="js/jquery.cw_hidereveal-0.1.js"></script>
+
+<script>
+$(function(){
+    $('.cwhidereveal').CWHideReveal();
+});
+</script>
+
+<script>
+//var _gaq=[['_setAccount','UA-00000000-1'],['_trackPageview']];
+//(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+//g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+//s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>

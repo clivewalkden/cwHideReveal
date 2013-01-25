@@ -19,9 +19,11 @@
             speed: 300,
             easing: '',
             changeText: false,
-            showText: 'Show',
+            showText: this.text(),
             hideText: 'Hide',
-            accordian: false
+            accordian: false,
+            openClass: 'cw_open'
+
         };
 
         // Merge default and user settings
@@ -53,6 +55,11 @@
                 $(container).slideToggle(settings.speed, settings.easing, function() {
                     if(settings.changeText==true){
                         $(container).is(":visible") ? link.text(settings.hideText) : link.text(settings.showText);
+                    }
+                    if ($(this).hasClass(settings.openClass)) {
+                        $(this).removeClass(settings.openClass);
+                    }else{
+                        $(this).addClass(settings.openClass);
                     }
                 });
 
