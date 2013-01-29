@@ -48,20 +48,26 @@
 
                 // If accordian is set automatically close all open divs
                 // NOT SURE THIS WORKS HERE
+                // Exclude the
                 if(settings.accordian==true){
-                    link.slideUp(settings.speed, settings.easing);
-                }
-
-                $(container).slideToggle(settings.speed, settings.easing, function() {
                     if(settings.changeText==true){
-                        $(container).is(":visible") ? link.text(settings.hideText) : link.text(settings.showText);
+                        $('.'+settings.openClass).is(":visible") ? link.text(settings.hideText) : link.text(settings.showText);
                     }
-                    if ($(this).hasClass(settings.openClass)) {
-                        $(this).removeClass(settings.openClass);
-                    }else{
-                        $(this).addClass(settings.openClass);
-                    }
-                });
+                    $('.'+settings.openClass).slideUp(settings.speed, settings.easing,function(){
+                        $('.'+settings.openClass).removeClass(settings.openClass);
+                    });
+                }else{
+                    $(container).slideToggle(settings.speed, settings.easing, function() {
+                        if(settings.changeText==true){
+                            $(container).is(":visible") ? link.text(settings.hideText) : link.text(settings.showText);
+                        }
+                        if ($(this).hasClass(settings.openClass)) {
+                            $(this).removeClass(settings.openClass);
+                        }else{
+                            $(this).addClass(settings.openClass);
+                        }
+                    });
+                }
 
                 return false;
             });

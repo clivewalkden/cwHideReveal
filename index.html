@@ -20,7 +20,7 @@
         <h1>CW HideReveal v0.1</h1>
         <p>This script enables the hide reveal ability that so many sites use.</p>
         <p>Basic usage</p>
-        <a href="#" data-id="example-content" class="cwhidereveal">Show Content</a>
+        <a href="#" data-id="example-content" class="demo1">Show Content</a>
         <div id="example-content">
             This is the hidden content you have just revealed
         </div>
@@ -62,6 +62,24 @@
         <p>Class applied to open containers.</p>
         <p>This is the class that is applied to containers once they have reached their open status.</p>
         <p>default: false</p>
+        <h3>Other Examples</h3>
+        <p>Below are some more examples of the script.</p>
+        <h4>Accordian Demo</h4>
+        <a href="#" data-id="example-content2" class="demo2">Show Content</a>
+        <div id="example-content2">
+            This is the hidden content you have just revealed
+        </div>
+        <br class="br">
+        <a href="#" data-id="example-content3" class="demo2">Show Content 2</a>
+        <div id="example-content3">
+            This is the hidden content you have just revealed
+        </div>
+        <br class="br">
+        <a href="#" data-id="example-content4" class="demo2">Show Content 3</a>
+        <div id="example-content4">
+            This is the hidden content you have just revealed
+        </div>
+        <br class="br">
         <br>
         <div class="changelog">
             <h4>v0.1 - <span>22nd January 2013</span></h4>
@@ -81,7 +99,12 @@
 
 <script>
 $(function(){
-    $('.cwhidereveal').CWHideReveal();
+    $('.demo1').CWHideReveal();
+
+    $('.demo2').CWHideReveal({
+        accordian: true,
+        openClass: 'demo2-open'
+    });
 });
 </script>
 
