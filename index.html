@@ -80,8 +80,16 @@
             This is the hidden content you have just revealed
         </div>
         <br class="br">
+        <h4>Link Name Change Demo</h4>
+        <a href="#" data-id="example-content5" class="demo3">Show Content 4</a>
+        <div id="example-content5">
+            This is the hidden content you have just revealed
+        </div>
+        <br class="br">
         <br>
         <div class="changelog">
+            <h4>v0.2 - <span>29nd January 2013</span></h4>
+            <p>Finalised the accordian command.</p>
             <h4>v0.1 - <span>22nd January 2013</span></h4>
             <p>Created the first version of the script based on previous created scripts.</p>
         </div>
@@ -93,7 +101,7 @@
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="/js/jquery-1.7.1.min.js"><\/script>')</script>
+<script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
 
 <script src="js/jquery.cw_hidereveal-0.1.js"></script>
 
@@ -102,8 +110,13 @@ $(function(){
     $('.demo1').CWHideReveal();
 
     $('.demo2').CWHideReveal({
-        accordian: true,
-        openClass: 'demo2-open'
+        accordian   : true,
+        openClass   : 'demo2-open'
+    });
+
+    $('.demo3').CWHideReveal({
+        changeText  : true,
+        openClass   : 'demo3-open'
     });
 });
 </script>
