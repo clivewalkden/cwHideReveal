@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width">
 <link href="css/main.css" rel="stylesheet">
-<link href="css/jquery.cw_hidereveal-0.1.css" rel="stylesheet">
+<link href="css/jquery.cw_hidereveal-0.3.css?v=1" rel="stylesheet">
 </head>
 <body>
 <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
@@ -33,35 +33,56 @@
             <li>showText</li>
             <li>hideText</li>
             <li>accordian</li>
+            <li>openClass</li>
+            <li>activeLinkMode</li>
+            <li>activeLinkClass</li>
         </ul>
         <h4>speed</h4>
         <p>The speed in which the animation completes.</p>
         <p>This is the amount of time it takes the hidden div to be shown or hidden.</p>
         <p>default: 300</p>
+
         <h4>easing</h4>
         <p>Easing type to use.</p>
         <p>If you want easing in your animation include it here. If you include the jQuery UI easing plugin you will have more options available.</p>
         <p>default: ''</p>
+
         <h4>changeText</h4>
         <p>Change the link text.</p>
         <p>If you want to specify the text that the link element updates to on click then set this to true.</p>
         <p>default: false</p>
+
         <h4>showText</h4>
         <p>The text shown to show content.</p>
         <p>The text you want the button to display when the content is hidden.</p>
         <p>default: 'Show</p>
+
         <h4>hideText</h4>
         <p>The text shown to hide content.</p>
         <p>The text you want the button to display when the content is hidden.</p>
         <p>default: 'Hide'</p>
+
         <h4>accordian</h4>
         <p>Hide other hidereveal content when 1 link is clicked.</p>
         <p>If you want the script to act like an accordian and close other hidereveal content when another link is clicked then set this to true.</p>
         <p>default: false</p>
+
         <h4>openClass</h4>
         <p>Class applied to open containers.</p>
         <p>This is the class that is applied to containers once they have reached their open status.</p>
         <p>default: false</p>
+
+        <h4>activeLinkMode</h4>
+        <p>Turn on the mode to add a class to the link.</p>
+        <p>The link that is clicked will have a class added to show that is has been clicked.</p>
+        <p>default: true</p>
+
+        <h4>activeLinkClass</h4>
+        <p>The class name used for the active link.</p>
+        <p>This is the class that is applied to the active link.</p>
+        <p>default: cw_active</p>
+
+
         <h3>Other Examples</h3>
         <p>Below are some more examples of the script.</p>
         <h4>Accordian Demo</h4>
@@ -86,8 +107,26 @@
             This is the hidden content you have just revealed
         </div>
         <br class="br">
+        <h4>Active Link Class Demo</h4>
+        <a href="#" data-id="example-content6" class="demo4">Show Content</a>
+        <div id="example-content6">
+            This is the hidden content you have just revealed
+        </div>
+        <br class="br">
+        <a href="#" data-id="example-content7" class="demo4">Show Content 2</a>
+        <div id="example-content7">
+            This is the hidden content you have just revealed
+        </div>
+        <br class="br">
+        <a href="#" data-id="example-content8" class="demo4">Show Content 3</a>
+        <div id="example-content8">
+            This is the hidden content you have just revealed
+        </div>
+        <br class="br">
         <br>
         <div class="changelog">
+            <h4>v0.3 - <span>28th March 2013</span></h4>
+            <p>Added the option to add an active class to the current selected link on click.</p>
             <h4>v0.2 - <span>29nd January 2013</span></h4>
             <p>Finalised the accordian command.</p>
             <h4>v0.1 - <span>22nd January 2013</span></h4>
@@ -103,7 +142,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
 
-<script src="js/jquery.cw_hidereveal-0.1.js"></script>
+<script src="js/jquery.cw_hidereveal-0.3.js?v=4"></script>
 
 <script>
 $(function(){
@@ -117,6 +156,11 @@ $(function(){
     $('.demo3').CWHideReveal({
         changeText  : true,
         openClass   : 'demo3-open'
+    });
+
+    $('.demo4').CWHideReveal({
+        changeText  : false,
+        openClass   : 'demo4-open'
     });
 });
 </script>

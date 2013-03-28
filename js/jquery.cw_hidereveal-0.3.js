@@ -23,8 +23,9 @@
             showText: this.text(),
             hideText: 'Hide',
             accordian: false,
-            openClass: 'cw_open'
-
+            openClass: 'cw_open',
+            activeLinkMode: true,
+            activeLinkClass: 'cw_active'
         };
 
         // Merge default and user settings
@@ -80,6 +81,14 @@
                             $(this).addClass(settings.openClass);
                         }
                     });
+                }
+
+                if(settings.activeLinkMode==true){
+                    if (link.hasClass(settings.activeLinkClass)){
+                        link.removeClass(settings.activeLinkClass);
+                    }else{
+                        link.addClass(settings.activeLinkClass);
+                    }
                 }
 
                 return this;
