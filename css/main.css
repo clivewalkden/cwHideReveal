@@ -1,0 +1,50 @@
+
+.chromeframe {
+	margin: 0;
+	background: #333;
+	color: #333;
+	padding: 16px 16px 16px 55px;
+	background: #e8e8e8 url(/images/icons/chromeframe.png) no-repeat 12px 12px;
+	border-bottom: 1px solid #c10000;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 9000;
+}
+.chromeframe a:link {color: #000 !important; text-decoration: underline !important;}
+.chromeframe a:visited {color: #000 !important; text-decoration: underline !important;}
+.chromeframe a:hover {color: #c10000 !important; text-decoration: underline !important;}
+.chromeframe a:active {color: #000 !important; text-decoration: underline !important;}
+
+/* ==|== custom site styles =================================================
+   Please define your styles in this section.
+   Author: Clive Walkden
+   ========================================================================== */
+
+header {
+	background: url('../img/dropdown_bg.png') repeat;
+	border-bottom: 4px solid #ffae00;
+	margin-bottom: 20px;
+}
+header h1 {
+	color: #fff;
+	font-size: 60px;
+	font-family: 'Roboto Condensed', sans-serif;
+	text-shadow: 2px 3px 0 rgba(255, 255, 255, 0.15);
+	line-height: 125px;
+}
+
+header h2 {
+	color: #fff;
+	font-size: 25px;
+	font-family: 'Roboto Condensed',sans-serif;
+	line-height: 125px;
+	float: right;
+}
+
+body > div.container { margin-bottom: 20px; }
+
+.center {
+	text-align: center;
+}
