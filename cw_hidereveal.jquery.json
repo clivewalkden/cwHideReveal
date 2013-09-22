@@ -1,0 +1,27 @@
+{
+  "name": "cw_hidereveal",
+  "title": "CW Hide Reveal",
+  "description": "A working jQuery hide reveal script",
+  "version": "0.3.0",
+  "homepage": "https://github.com/clivewalkden/cwHideReveal",
+  "author": {
+    "name": "Clive Walkden",
+    "email": "clivewalkden@gmail.com",
+    "url": "http://clivewalkden.co.uk"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/clivewalkden/cwHideReveal.git"
+  },
+  "bugs": "https://github.com/clivewalkden/cwHideReveal/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/clivewalkden/cwHideReveal/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "*"
+  },
+  "keywords": []
+}

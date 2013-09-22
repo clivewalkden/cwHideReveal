@@ -1,15 +1,9 @@
-/*!
- * Hide Reveal - for jQuery 1.7+
- * http://www.cwenterprises.co.uk
+/*
+ * cw_hidereveal
+ * https://github.com/clivewalkden/cwHideReveal
  *
- * Copyright 2013, Clive Walkden (http://www.cwenterprises.co.uk)
- *
- * @package Hide Reveal
- * @author Clive Walkden (http://www.cwenterprises.co.uk)
- * @version 1.0.0
- * @copyright Copyright (c) 2012 SOZO Design Ltd (http://www.cwenterprises.co.uk)
- * @date: 22-01-2013
- * @todo Tidy up the script now that it works
+ * Copyright (c) 2013 Clive Walkden
+ * Licensed under the MIT license.
  */
 
 (function ($) {
@@ -33,7 +27,7 @@
 
         this.each(function(){
             // Get the link
-            var link = $(this);
+			var link = $(this);
 
             // Get the container id
             var container = $('#'+link.data('id'));
@@ -49,7 +43,7 @@
                 e.preventDefault();
 
                 // If accordian is set automatically close all open divs
-                if(settings.accordian==true){
+                if(settings.accordian === true){
 
                     $('.'+settings.openClass).slideUp(settings.speed, settings.easing,function(){
                         $('.'+settings.openClass).removeClass(settings.openClass);
@@ -59,7 +53,7 @@
 
                         $(container).slideDown(settings.speed, settings.easing, function(){
 
-                            if(settings.changeText==true){
+                            if(settings.changeText === true){
                                 $('.'+settings.openClass).is(":visible") ? $(this).text(settings.hideText) : $(this).text(settings.showText);
                             }
 
@@ -71,7 +65,7 @@
 
                     $(container).slideToggle(settings.speed, settings.easing, function() {
 
-                        if(settings.changeText==true){
+                        if(settings.changeText === true){
                             $(container).is(":visible") ? link.text(settings.hideText) : link.text(settings.showText);
                         }
 
@@ -83,7 +77,7 @@
                     });
                 }
 
-                if(settings.activeLinkMode==true){
+                if(settings.activeLinkMode === true){
                     if (link.hasClass(settings.activeLinkClass)){
                         link.removeClass(settings.activeLinkClass);
                     }else{
