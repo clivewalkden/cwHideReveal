@@ -28,6 +28,12 @@
     }
   });
 
+  test("test something", function(){
+    expect(1);
+
+    ok($('body').is(':visible'),"Document loaded");
+  });
+
 //  test("check if box is revealed on click", function() {
 //
 //	// Specify number of assertions for this test.

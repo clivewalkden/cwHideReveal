@@ -44,7 +44,7 @@ module.exports = function(grunt) {
 	qunit: {
       all: {
         options: {
-		  urls: ['1.7.1','1.9.0', '2.0.0b1'].map(function(version) {
+          urls: ['1.7.1','1.9.0', '2.0.0b1'].map(function(version) {
             return 'http://localhost:<%= connect.server.options.port %>/test/cw_hidereveal.html?jquery=' + version;
           })
         }

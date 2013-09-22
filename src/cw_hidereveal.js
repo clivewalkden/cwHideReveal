@@ -54,7 +54,11 @@
                         $(container).slideDown(settings.speed, settings.easing, function(){
 
                             if(settings.changeText === true){
-                                $('.'+settings.openClass).is(":visible") ? $(this).text(settings.hideText) : $(this).text(settings.showText);
+                                if($('.'+settings.openClass).is(":visible")) {
+									$(this).text(settings.hideText);
+								}else{
+									$(this).text(settings.showText);
+								}
                             }
 
                             $(this).addClass(settings.openClass);
@@ -66,7 +70,11 @@
                     $(container).slideToggle(settings.speed, settings.easing, function() {
 
                         if(settings.changeText === true){
-                            $(container).is(":visible") ? link.text(settings.hideText) : link.text(settings.showText);
+                            if($(container).is(":visible")){
+								link.text(settings.hideText);
+							}else{
+								link.text(settings.showText);
+							}
                         }
 
                         if ($(this).hasClass(settings.openClass)) {
