@@ -24,35 +24,22 @@
     // This will run before each test in this module.
     setup: function() {
       this.link = $('.demo1');
-      this.content = $('#example-content');
+      this.content = $('#test-content');
+
+	  $(this.link).CWHideReveal();
     }
   });
 
-  test("test something", function(){
-    expect(1);
+  test("Test basic functionality", function(){
+    expect(5);
 
-    ok($('body').is(':visible'),"Document loaded");
+	ok(this.link.is(':visible'),'Clickable area is visible');
+
+	ok(this.content.is(':hidden'),'Content is hidden');
+
+	this.link.click();
+
+	ok(this.content.is(':visible'),'Content is shown after button click');
   });
-
-//  test("check if box is revealed on click", function() {
-//
-//	// Specify number of assertions for this test.
-//	expect(1);
-//
-//	// Initialize module
-//	$(this.link).CWHideReveal();
-//
-//	// Check original state of content (boolean assertion).
-//	ok(this.content.is(":visible"), "Content is initially hidden");
-//
-//	// Trigger click event on native button element.
-//	QUnit.triggerEvent(this.link, "click");
-//
-//	// Check state of toggleBox after clicking the button.
-//	//ok(this.content.is(":visible"), "content is shown after button click");
-//
-//	//QUnit.triggerEvent(this.link, "click");
-//	//ok(this.content.is(":hidden"), "content is hidden again after button click");
-//  });
 
 }(jQuery));
