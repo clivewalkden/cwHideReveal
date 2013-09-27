@@ -26,12 +26,12 @@
       this.link = $('.demo1');
       this.content = $('#test-content');
 
-	  $(this.link).CWHideReveal();
+      $(this.link).CWHideReveal();
     }
   });
 
   test("Test basic functionality", function(){
-    expect(5);
+    expect(3);
 
 	ok(this.link.is(':visible'),'Clickable area is visible');
 
