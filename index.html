@@ -1,148 +1,341 @@
 <!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
-<title>CWHideReveal</title>
-<meta name="description" content="">
+<title>CWHideReveal v0.4 | jQuery Plugin | Clive Walkden</title>
+<meta name="description" content="CWHideReveal is a simple jQuery Hide Reveal script without the bloat that other Hide Reveal scripts contain">
 
 <meta name="viewport" content="width=device-width">
-<link href="css/main.css" rel="stylesheet">
-<link href="css/jquery.cw_hidereveal-0.3.css?v=1" rel="stylesheet">
+
+<link href="http://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+
+<link href="http://clivewalkden.co.uk/code/template/css/bootstrap.css" rel="stylesheet">
+<link href="http://clivewalkden.co.uk/code/template/css/main.css" rel="stylesheet">
+<link href="css/cw_hidereveal.css" rel="stylesheet">
+<link href="http://clivewalkden.co.uk/code/template/css/prettify.css" rel="stylesheet">
 </head>
 <body>
 <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 
-<div id="container">
     <header>
-
+		<div class="container">
+			<div class="row">
+				<div class="span6">
+					<h1>CW HideReveal v0.4</h1>
+				</div>
+				<div class="span6">
+					<h2>A working jQuery hide reveal script</h2>
+				</div>
+			</div>
+		</div>
     </header>
 
-    <div role="main" id="content">
-        <h1>CW HideReveal v0.1</h1>
-        <p>This script enables the hide reveal ability that so many sites use.</p>
-        <p>Basic usage</p>
-        <a href="#" data-id="example-content" class="demo1">Show Content</a>
-        <div id="example-content">
-            This is the hidden content you have just revealed
-        </div>
-        <h3>Configuration Options</h3>
-        <p>The script has 5 options:</p>
-        <ul>
-            <li>speed</li>
-            <li>easing</li>
-            <li>changeText</li>
-            <li>showText</li>
-            <li>hideText</li>
-            <li>accordian</li>
-            <li>openClass</li>
-            <li>activeLinkMode</li>
-            <li>activeLinkClass</li>
-        </ul>
-        <h4>speed</h4>
-        <p>The speed in which the animation completes.</p>
-        <p>This is the amount of time it takes the hidden div to be shown or hidden.</p>
-        <p>default: 300</p>
+    <div class="container">
+		<div class="row">
+			<div class="span12 center">
+				<a href="https://bitbucket.org/clivewalkden/cwhidereveal" class="btn btn-large btn-inverse" target="_blank">View Project on Bitbucket »</a>
+				<a href="https://bitbucket.org/clivewalkden/cwhidereveal/get/v0.4.0.zip" class="btn btn-large">Download CW Hide Reveal</a>
+			</div>
+		</div>
+	</div>
 
-        <h4>easing</h4>
-        <p>Easing type to use.</p>
-        <p>If you want easing in your animation include it here. If you include the jQuery UI easing plugin you will have more options available.</p>
-        <p>default: ''</p>
+	<div role="main" class="container">
+		<div class="row">
+			<div class="span12">
+				<img src="https://travis-ci.org/clivewalkden/cwHideReveal.png?branch=develop">
+				<p>A simple version of a Hide Reveal script. Many Hide Reveal scripts are bloated and don't always work in all layouts.</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span12">
+				<div class="page-header">
+					<h1>Basic Usage</h1>
+				</div>
+			</div>
+		</div>
 
-        <h4>changeText</h4>
-        <p>Change the link text.</p>
-        <p>If you want to specify the text that the link element updates to on click then set this to true.</p>
-        <p>default: false</p>
+		<div class="row">
+			<div class="span12">
+				<p>The code below...</p>
+				<pre class="prettyprint linenums lang-html">&lt;!-- Create the link that will be clicked to reveal the content --&gt;
+&lt;a href="#" data-id="targetcontent" class="hidereveal"&gt;Show Content&lt;/a&gt;
 
-        <h4>showText</h4>
-        <p>The text shown to show content.</p>
-        <p>The text you want the button to display when the content is hidden.</p>
-        <p>default: 'Show</p>
+&lt;!-- Create the div that contains the hidden content --&gt;
+&lt;div id="targetcontent"&gt;
+	This is the hidden content you have just revealed
+&lt;/div&gt;
 
-        <h4>hideText</h4>
-        <p>The text shown to hide content.</p>
-        <p>The text you want the button to display when the content is hidden.</p>
-        <p>default: 'Hide'</p>
+&lt;script&gt;
+// Finally call the script
+$(function(){
+	$('.hidereveal').CWHideReveal();
+});
+&lt;/script&gt;</pre>
+			</div>
+			<div class="span12">
+				<p>... produces this</p>
+				<a href="#" data-id="example-content" class="demo1">Show Content</a>
+				<div id="example-content">
+					This is the hidden content you have just revealed
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span12">
+				<div class="page-header">
+					<h1>Configuration Options</h1>
+				</div>
+			</div>
+			<div class="span12">
+				<table class="table table-bordered">
+				<tr>
+					<th>Property</th>
+					<th>Type</th>
+					<th>Default</th>
+					<th>Description</th>
+				</tr>
+				<tr>
+					<td>speed</td>
+					<td>integer</td>
+					<td><code>300</code></td>
+					<td>The speed in which the animation completes. This is the amount of time it takes the hidden div to be shown or hidden.</td>
+				</tr>
+				<tr>
+					<td>easing</td>
+					<td>string</td>
+					<td><code>''</code></td>
+					<td>If you want easing in your animation include it here. If you include the jQuery UI easing plugin you will have more options available.</td>
+				</tr>
+				<tr>
+					<td>changeText</td>
+					<td>boolean</td>
+					<td><code>false</code></td>
+					<td>If you want to specify the text that the link element updates to on click then set this to true.</td>
+				</tr>
+				<tr>
+					<td>showText</td>
+					<td>string</td>
+					<td><code>'Show'</code></td>
+					<td>The text you want the button to display when the content is hidden.</td>
+				</tr>
+				<tr>
+					<td>hideText</td>
+					<td>string</td>
+					<td><code>'Hide'</code></td>
+					<td>The text you want the button to display when the content is hidden.</td>
+				</tr>
+				<tr>
+					<td>accordian</td>
+					<td>boolean</td>
+					<td><code>false</code></td>
+					<td>If you want the script to act like an accordian and close other hidereveal content when another link is clicked then set this to true.</td>
+				</tr>
+				<tr>
+					<td>openClass</td>
+					<td>string</td>
+					<td><code>false</code></td>
+					<td>This is the class that is applied to containers once they have reached their open status.</td>
+				</tr>
+				<tr>
+					<td>activeLinkMode</td>
+					<td>string</td>
+					<td><code>true</code></td>
+					<td>The link that is clicked will have a class added to show that is has been clicked.</td>
+				</tr>
+				<tr>
+					<td>activeLinkClass</td>
+					<td>string</td>
+					<td><code>'cw_active'</code></td>
+					<td>This is the class that is applied to the active link.</td>
+				</tr>
+				</table>
+			</div>
+		</div>
 
-        <h4>accordian</h4>
-        <p>Hide other hidereveal content when 1 link is clicked.</p>
-        <p>If you want the script to act like an accordian and close other hidereveal content when another link is clicked then set this to true.</p>
-        <p>default: false</p>
+		<div class="row">
+			<div class="span12">
+				<div class="page-header">
+					<h1>Other Examples</h1>
+				</div>
+				<p>Below are some more examples of the script.</p>
+			</div>
+		</div>
 
-        <h4>openClass</h4>
-        <p>Class applied to open containers.</p>
-        <p>This is the class that is applied to containers once they have reached their open status.</p>
-        <p>default: false</p>
+		<div class="row">
+			<div class="span12">
+				<h3>Accordian Demo</h3>
+				<p><strong>Code:</strong></p>
+				<pre class="prettyprint linenums lang-html">&lt;!-- Create the link and hidden content --&gt;
+&lt;a href="#" data-id="example-content2" class="demo2"&gt;Show Content&lt;/a&gt;
+&lt;div id="example-content2"&gt;
+	This is the hidden content you have just revealed
+&lt;/div&gt;
 
-        <h4>activeLinkMode</h4>
-        <p>Turn on the mode to add a class to the link.</p>
-        <p>The link that is clicked will have a class added to show that is has been clicked.</p>
-        <p>default: true</p>
+&lt;a href="#" data-id="example-content3" class="demo2"&gt;Show Content 2&lt;/a&gt;
+&lt;div id="example-content3"&gt;
+	This is the hidden content you have just revealed
+&lt;/div&gt;
 
-        <h4>activeLinkClass</h4>
-        <p>The class name used for the active link.</p>
-        <p>This is the class that is applied to the active link.</p>
-        <p>default: cw_active</p>
+&lt;a href="#" data-id="example-content4" class="demo2"&gt;Show Content 3&lt;/a&gt;
+&lt;div id="example-content4"&gt;
+	This is the hidden content you have just revealed
+&lt;/div&gt;
 
+&lt;script&gt;
+// Finally call the script
+$(function(){
+	$('.demo2').CWHideReveal({
+		accordian   : true,
+		openClass   : 'demo2-open'
+	});
+});
+&lt;/script&gt;</pre>
+				<p><strong>Example:</strong></p>
+				<a href="#" data-id="example-content2" class="demo2">Show Content</a>
+				<div id="example-content2">
+					This is the hidden content you have just revealed
+				</div>
+				<br class="br">
+				<a href="#" data-id="example-content3" class="demo2">Show Content 2</a>
+				<div id="example-content3">
+					This is the hidden content you have just revealed
+				</div>
+				<br class="br">
+				<a href="#" data-id="example-content4" class="demo2">Show Content 3</a>
+				<div id="example-content4">
+					This is the hidden content you have just revealed
+				</div>
+			</div>
+		</div>
 
-        <h3>Other Examples</h3>
-        <p>Below are some more examples of the script.</p>
-        <h4>Accordian Demo</h4>
-        <a href="#" data-id="example-content2" class="demo2">Show Content</a>
-        <div id="example-content2">
-            This is the hidden content you have just revealed
-        </div>
-        <br class="br">
-        <a href="#" data-id="example-content3" class="demo2">Show Content 2</a>
-        <div id="example-content3">
-            This is the hidden content you have just revealed
-        </div>
-        <br class="br">
-        <a href="#" data-id="example-content4" class="demo2">Show Content 3</a>
-        <div id="example-content4">
-            This is the hidden content you have just revealed
-        </div>
-        <br class="br">
-        <h4>Link Name Change Demo</h4>
-        <a href="#" data-id="example-content5" class="demo3">Show Content 4</a>
-        <div id="example-content5">
-            This is the hidden content you have just revealed
-        </div>
-        <br class="br">
-        <h4>Active Link Class Demo</h4>
-        <a href="#" data-id="example-content6" class="demo4">Show Content</a>
-        <div id="example-content6">
-            This is the hidden content you have just revealed
-        </div>
-        <br class="br">
-        <a href="#" data-id="example-content7" class="demo4">Show Content 2</a>
-        <div id="example-content7">
-            This is the hidden content you have just revealed
-        </div>
-        <br class="br">
-        <a href="#" data-id="example-content8" class="demo4">Show Content 3</a>
-        <div id="example-content8">
-            This is the hidden content you have just revealed
-        </div>
-        <br class="br">
-        <br>
-        <div class="changelog">
-            <h4>v0.3 - <span>28th March 2013</span></h4>
-            <p>Added the option to add an active class to the current selected link on click.</p>
-            <h4>v0.2 - <span>29nd January 2013</span></h4>
-            <p>Finalised the accordian command.</p>
-            <h4>v0.1 - <span>22nd January 2013</span></h4>
-            <p>Created the first version of the script based on previous created scripts.</p>
-        </div>
+		<div class="row">
+			<div class="span12">
+				<h3>Link Name Change Demo</h3>
+				<p><strong>Code:</strong></p>
+				<pre class="prettyprint linenums lang-html">&lt;!-- Create the link and hidden content --&gt;
+&lt;a href="#" data-id="example-content5" class="demo3"&gt;Show Content 4&lt;/a&gt;
+&lt;div id="example-content5"&gt;
+	This is the hidden content you have just revealed
+&lt;/div&gt;
+
+&lt;script&gt;
+// Finally call the script
+$(function(){
+	$('.demo3').CWHideReveal({
+        changeText  : true,
+        openClass   : 'demo3-open'
+	});
+});
+&lt;/script&gt;</pre>
+				<p><strong>Example:</strong></p>
+				<a href="#" data-id="example-content5" class="demo3">Show Content 4</a>
+				<div id="example-content5">
+					This is the hidden content you have just revealed
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span12">
+				<h3>Active Link Class Demo</h3>
+				<p><strong>Code:</strong></p>
+				<pre class="prettyprint linenums lang-html">&lt;!-- Create the link and hidden content --&gt;
+&lt;a href="#" data-id="example-content6" class="demo4"&gt;Show Content&lt;/a&gt;
+&lt;div id="example-content6"&gt;
+	This is the hidden content you have just revealed
+&lt;/div&gt;
+&lt;br class="br"&gt;
+&lt;a href="#" data-id="example-content7" class="demo4"&gt;Show Content 2&lt;/a&gt;
+&lt;div id="example-content7"&gt;
+	This is the hidden content you have just revealed
+&lt;/div&gt;
+&lt;br class="br"&gt;
+&lt;a href="#" data-id="example-content8" class="demo4"&gt;Show Content 3&lt;/a&gt;
+&lt;div id="example-content8"&gt;
+	This is the hidden content you have just revealed
+&lt;/div&gt;
+
+&lt;script&gt;
+// Finally call the script
+$(function(){
+	$('.demo4').CWHideReveal({
+        changeText  : false,
+        openClass   : 'demo4-open'
+    });
+});
+&lt;/script&gt;</pre>
+				<p><strong>Example:</strong></p>
+				<a href="#" data-id="example-content6" class="demo4">Show Content</a>
+				<div id="example-content6">
+					This is the hidden content you have just revealed
+				</div>
+				<br class="br">
+				<a href="#" data-id="example-content7" class="demo4">Show Content 2</a>
+				<div id="example-content7">
+					This is the hidden content you have just revealed
+				</div>
+				<br class="br">
+				<a href="#" data-id="example-content8" class="demo4">Show Content 3</a>
+				<div id="example-content8">
+					This is the hidden content you have just revealed
+				</div>
+				<br class="br">
+				<br>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span12">
+				<div class="page-header">
+					<h1>Changelog</h1>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span12">
+				<table class="table table-bordered table-striped">
+				<tr>
+					<td><strong>v0.4</strong></td>
+					<td>27th September 2013</td>
+					<td>Added unit test.<br>
+						Gave the plugin a small update to improve compatability</td>
+				</tr>
+				<tr>
+					<td><strong>v0.3</strong></td>
+					<td>28th March 2012</td>
+					<td>Added the option to add an active class to the current selected link on click.</td>
+				</tr>
+				<tr>
+					<td><strong>v0.2</strong></td>
+					<td>29th January 2013</td>
+					<td>Finalised the accordian command.</td>
+				</tr>
+				<tr>
+					<td><strong>v0.1</strong></td>
+					<td>22nd January 2013</td>
+					<td>Created the first version of the script based on previous created scripts.</td>
+				</tr>
+				</table>
+			</div>
+		</div>
     </div>
 
     <footer>
 
     </footer>
-</div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery-1.8.1.min.js"><\/script>')</script>
 
-<script src="js/jquery.cw_hidereveal-0.3.js?v=4"></script>
+<script src="dist/cw_hidereveal.js"></script>
+<script src="http://clivewalkden.co.uk/code/template/js/bootstrap.js"></script>
+<script src="http://clivewalkden.co.uk/code/template/js/prettify.js"></script>
+
+<script>
+$(function(){
+	window.prettyPrint && prettyPrint();
+})
+</script>
 
 <script>
 $(function(){
