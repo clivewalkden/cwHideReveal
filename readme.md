@@ -30,7 +30,7 @@ http://clivewalkden.co.uk/code/cw_hide_reveal/
 
 ## Release History
 
-#### v0.4 - 26th September 2013 ####
+#### v0.4 - 27th September 2013 ####
 * Added unit test.
 * Gave the plugin a small update to improve compatability
 
