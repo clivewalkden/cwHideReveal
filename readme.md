@@ -13,11 +13,16 @@ Download the [production version][min] or the [development version][max].
 In your web page:
 
 ```html
-<script src="jquery.js"></script>
+<a href="#" class="hidereveal" data-id="hidereveal01">Read More</a>
+<div id="hidereveal01">
+	More content is here
+</div>
+
+<script src="libs/jquery/jquery.js"></script>
 <script src="dist/cw_hidereveal.min.js"></script>
 <script>
 jQuery(function($) {
-  $.awesome(); // "awesome"
+	$('.hidereveal').CWHideReveal();
 });
 </script>
 ```
@@ -29,6 +34,11 @@ _(Coming soon)_
 http://clivewalkden.co.uk/code/cw_hide_reveal/
 
 ## Release History
+
+#### v0.5.0 - 30th January 2014 ####
+* Completely re-coded the script.
+* Added the ability to have a container open by default through the script options. (As requested by [Mark Plunkett][markurl])
+[markurl]: http://www.mark-plunkett.co.uk
 
 #### v0.4 - 27th September 2013 ####
 * Added unit test.

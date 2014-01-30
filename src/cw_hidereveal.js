@@ -19,81 +19,149 @@
             accordian: false,
             openClass: 'cw_open',
             activeLinkMode: true,
-            activeLinkClass: 'cw_active'
+            activeLinkClass: 'cw_active',
+            defaultOpen : null
         };
 
         // Merge default and user settings
         var settings = $.extend({}, defaults, custom);
 
-        this.each(function(){
-            // Get the link
-			var link = $(this);
+		var prop = {
+			container		: null,
+			currentLink		: null,
+			accordians		: []
+		};
 
-            // Get the container id
-            var container = $('#'+link.data('id'));
+		var methods = {
+			checkData: function($this) {
+				if (null === prop.currentLink) {
+					prop.currentLink = $($this);
+				}
+
+				if (null === prop.container) {
+					prop.container = $('#'+prop.currentLink.data('id'));
+				}
+			},
+			hidden: function() {
+				return prop.container.hasClass(settings.openClass);
+			},
+			toggle: function($this){
+				if(methods.hidden($this)) {
+					methods.hide($this);
+				}else{
+					methods.show($this);
+				}
+
+				return false;
+			},
+			show: function($this){
+				methods.checkData($this);
+
+				prop.container.slideDown(settings.speed, settings.easing, function(){
+
+					if(settings.changeText === true){
+						methods.changeText($this);
+					}
+
+					if(settings.activeLinkMode) {
+						prop.currentLink.addClass(settings.activeLinkClass);
+					}
+
+					prop.container.addClass(settings.openClass);
+				});
+
+				// Close other accordians
+				if (settings.accordian) {
+					methods.hideAccordian();
+					prop.accordians.push(prop.container);
+				}
+			},
+			hide: function($this) {
+				if(settings.activeLinkMode) {
+					prop.currentLink.removeClass(settings.activeLinkClass);
+				}
+
+				prop.container.removeClass(settings.openClass);
+
+				prop.container.slideUp(settings.speed, settings.easing,function(){
+
+					if(settings.changeText === true){
+						methods.changeText($this);
+					}
+				});
+			},
+			hideAccordian: function() {
+				// Save current values
+				var o_container = prop.container;
+				var o_link = prop.currentLink;
+
+				// Check if the same accordian is being closed
+				if(prop.accordians.length && o_container.attr('id') === prop.accordians[0].attr('id')) {
+					// Remove the accordian
+					prop.accordians.shift();
+
+					return false;
+				}
+
+				$.each(prop.accordians,function(){
+					prop.container = $(this);
+					prop.currentLink = $('[data-id="'+$(this).attr('id')+'"]');
+					methods.hide($(this));
+				});
+
+				// Restore current values
+				prop.container = o_container;
+				prop.currentLink = o_link;
+
+				// Remove the accordian
+				prop.accordians.shift();
+			},
+			hideAll: function($el) {
+				$el.css({
+					'display' : 'none'
+				});
+			},
+			changeText: function($this) {
+				if(prop.container.is(":visible")) {
+					$this.text($this.data('hideText'));
+				}else{
+					$this.text($this.data('showText'));
+				}
+			},
+			saveLink: function($this) {
+				$this.data('showText',$this.text()).data('hideText',settings.hideText);
+			}
+		};
+
+        this.each(function(){
+			// Get the link
+			var obj = $(this);
 
             // Auto hide the divs
-            container.css({
-                'display' : 'none'
-            });
+            methods.hideAll($('#'+obj.data('id')));
+
+			if(settings.changeText) {
+				methods.saveLink(obj);
+			}
+
+			if(settings.defaultOpen && obj.data('id') === settings.defaultOpen){
+				methods.show(obj);
+			}
 
             // When a link is clicked toggle the container
-            link.on('click',function(e){
+            obj.on('click',function(e){
                 // Prevent the default action of the link
                 e.preventDefault();
 
-                // If accordian is set automatically close all open divs
-                if(settings.accordian === true){
+                prop.currentLink = $(this);
 
-                    $('.'+settings.openClass).slideUp(settings.speed, settings.easing,function(){
-                        $('.'+settings.openClass).removeClass(settings.openClass);
-                    });
+				// Get the container id
+				prop.container = $('#'+prop.currentLink.data('id'));
 
-                    if ($(container).is(':hidden')) {
+				// Get the link
+				methods.toggle(prop.currentLink);
 
-                        $(container).slideDown(settings.speed, settings.easing, function(){
-
-                            if(settings.changeText === true){
-                                if($('.'+settings.openClass).is(":visible")) {
-									$(this).text(settings.hideText);
-								}else{
-									$(this).text(settings.showText);
-								}
-                            }
-
-                            $(this).addClass(settings.openClass);
-                        });
-                    }
-
-                }else{
-
-                    $(container).slideToggle(settings.speed, settings.easing, function() {
-
-                        if(settings.changeText === true){
-                            if($(container).is(":visible")){
-								link.text(settings.hideText);
-							}else{
-								link.text(settings.showText);
-							}
-                        }
-
-                        if ($(this).hasClass(settings.openClass)) {
-                            $(this).removeClass(settings.openClass);
-                        }else{
-                            $(this).addClass(settings.openClass);
-                        }
-                    });
-                }
-
-                if(settings.activeLinkMode === true){
-                    if (link.hasClass(settings.activeLinkClass)){
-                        link.removeClass(settings.activeLinkClass);
-                    }else{
-                        link.addClass(settings.activeLinkClass);
-                    }
-                }
-
-                return this;
+				return this;
             });
         });
     };
