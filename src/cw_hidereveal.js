@@ -25,71 +25,100 @@
         // Merge default and user settings
         var settings = $.extend({}, defaults, custom);
 
-        this.each(function(){
-            // Get the link
-			var link = $(this);
+		var prop = {
+			container		: null,
+			currentLink		: null
+		};
 
-            // Get the container id
-            var container = $('#'+link.data('id'));
+		var methods = {
+			toggle: function(){
+				prop.container.slideToggle(settings.speed, settings.easing, function() {
+
+					if(settings.changeText === true){
+						methods.changeText(prop.currentLink);
+					}
+
+					if ($(this).hasClass(settings.openClass)) {
+						$(this).removeClass(settings.openClass);
+					}else{
+						$(this).addClass(settings.openClass);
+					}
+				});
+			},
+			show: function(){
+				console.log('show');
+				prop.container.slideDown(settings.speed, settings.easing, function(){
+
+					if(settings.changeText === true){
+						methods.changeText(prop.currentLink);
+					}
+
+					$(this).addClass(settings.openClass);
+				});
+			},
+			hide: function() {
+				console.log('hide');
+				$('.'+settings.openClass).slideUp(settings.speed, settings.easing,function(){
+					$('.'+settings.openClass).removeClass(settings.openClass);
+				});
+			},
+			hideAll: function(el) {
+				console.log('hide all');
+				el.css({
+					'display' : 'none'
+				});
+			},
+			changeText: function(el) {
+				console.log('change text');
+				console.log($('.'+settings.openClass).is(':visible'));
+				if($('.'+settings.openClass).is(":visible")) {
+					console.log('hideText');
+					el.text(settings.hideText);
+				}else{
+					console.log('showText');
+					el.text(settings.showText);
+				}
+			}
+		};
+
+        this.each(function(){
+			// Get the link
+			prop.currentLink = $(this);
+
+			// Get the container id
+			prop.container = $('#'+prop.currentLink.data('id'));
 
             // Auto hide the divs
-            container.css({
-                'display' : 'none'
-            });
+            methods.hideAll(prop.container);
 
             // When a link is clicked toggle the container
-            link.on('click',function(e){
+            prop.currentLink.on('click',function(e){
+
                 // Prevent the default action of the link
                 e.preventDefault();
 
+				// Get the link
+				prop.currentLink = $(this);
+
+				// Get the container id
+				prop.container = $('#'+prop.currentLink.data('id'));
+
                 // If accordian is set automatically close all open divs
                 if(settings.accordian === true){
+                    methods.hide();
 
-                    $('.'+settings.openClass).slideUp(settings.speed, settings.easing,function(){
-                        $('.'+settings.openClass).removeClass(settings.openClass);
-                    });
-
-                    if ($(container).is(':hidden')) {
-
-                        $(container).slideDown(settings.speed, settings.easing, function(){
-
-                            if(settings.changeText === true){
-                                if($('.'+settings.openClass).is(":visible")) {
-									$(this).text(settings.hideText);
-								}else{
-									$(this).text(settings.showText);
-								}
-                            }
-
-                            $(this).addClass(settings.openClass);
-                        });
+                    if (prop.container.is(':hidden')) {
+                        methods.show();
                     }
-
                 }else{
-
-                    $(container).slideToggle(settings.speed, settings.easing, function() {
-
-                        if(settings.changeText === true){
-                            if($(container).is(":visible")){
-								link.text(settings.hideText);
-							}else{
-								link.text(settings.showText);
-							}
-                        }
-
-                        if ($(this).hasClass(settings.openClass)) {
-                            $(this).removeClass(settings.openClass);
-                        }else{
-                            $(this).addClass(settings.openClass);
-                        }
-                    });
+                    methods.toggle();
                 }
 
                 if(settings.activeLinkMode === true){
-                    if (link.hasClass(settings.activeLinkClass)){
-                        link.removeClass(settings.activeLinkClass);
+                    if (prop.currentLink.hasClass(settings.activeLinkClass)){
+                        prop.currentLink.removeClass(settings.activeLinkClass);
                     }else{
-                        link.addClass(settings.activeLinkClass);
+                        prop.currentLink.addClass(settings.activeLinkClass);
                     }
                 }
 
