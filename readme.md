@@ -17,7 +17,7 @@ In your web page:
 <script src="dist/cw_hidereveal.min.js"></script>
 <script>
 jQuery(function($) {
-  $.awesome(); // "awesome"
+  $('.hidereveal').CWHideReveal();
 });
 </script>
 ```

@@ -27,102 +27,119 @@
 
 		var prop = {
 			container		: null,
-			currentLink		: null
+			currentLink		: null,
+			accordians		: [],
 		};
 
 		var methods = {
-			toggle: function(){
-				prop.container.slideToggle(settings.speed, settings.easing, function() {
-
-					if(settings.changeText === true){
-						methods.changeText(prop.currentLink);
-					}
-
-					if ($(this).hasClass(settings.openClass)) {
-						$(this).removeClass(settings.openClass);
-					}else{
-						$(this).addClass(settings.openClass);
-					}
-				});
+			hidden: function($this) {
+				return prop.container.hasClass(settings.openClass);
 			},
-			show: function(){
-				console.log('show');
+			toggle: function($this){
+				if(methods.hidden($this)) {
+					methods.hide($this);
+				}else{
+					methods.show($this);
+				}
+
+				return false;
+			},
+			show: function($this){
 				prop.container.slideDown(settings.speed, settings.easing, function(){
 
 					if(settings.changeText === true){
-						methods.changeText(prop.currentLink);
+						methods.changeText($this);
 					}
 
-					$(this).addClass(settings.openClass);
+					if(settings.activeLinkMode) {
+						prop.currentLink.addClass(settings.activeLinkClass);
+					}
+
+					prop.container.addClass(settings.openClass);
+				});
+
+				// Close other accordians
+				if (settings.accordian) {
+					methods.hideAccordian();
+					prop.accordians.push(prop.container);
+				}
+			},
+			hide: function($this) {
+				if(settings.activeLinkMode) {
+					prop.currentLink.removeClass(settings.activeLinkClass);
+				}
+
+				prop.container.removeClass(settings.openClass);
+
+				prop.container.slideUp(settings.speed, settings.easing,function(){
+
+					if(settings.changeText === true){
+						methods.changeText($this);
+					}
 				});
 			},
-			hide: function() {
-				console.log('hide');
-				$('.'+settings.openClass).slideUp(settings.speed, settings.easing,function(){
-					$('.'+settings.openClass).removeClass(settings.openClass);
+			hideAccordian: function() {
+				// Save current values
+				var o_container = prop.container;
+				var o_link = prop.currentLink;
+
+				$.each(prop.accordians,function(index){
+					prop.container = $(this);
+					prop.currentLink = $('[data-id="'+$(this).attr('id')+'"]');
+					methods.hide($(this));
 				});
+
+				// Restore current values
+				prop.container = o_container;
+				prop.currentLink = o_link;
+
+				// Remove the accordian
+				prop.accordians.shift();
 			},
-			hideAll: function(el) {
-				console.log('hide all');
-				el.css({
+			hideAll: function($el) {
+				$el.css({
 					'display' : 'none'
 				});
 			},
-			changeText: function(el) {
-				console.log('change text');
-				console.log($('.'+settings.openClass).is(':visible'));
-				if($('.'+settings.openClass).is(":visible")) {
+			changeText: function($this) {
+				if(prop.container.is(":visible")) {
 					console.log('hideText');
-					el.text(settings.hideText);
+					$this.text($this.data('hideText'));
 				}else{
 					console.log('showText');
-					el.text(settings.showText);
+					$this.text($this.data('showText'));
 				}
+			},
+			saveLink: function($this) {
+				$this.data('showText',$this.text()).data('hideText',settings.hideText);
 			}
 		};
 
         this.each(function(){
 			// Get the link
-			prop.currentLink = $(this);
-
-			// Get the container id
-			prop.container = $('#'+prop.currentLink.data('id'));
+			obj = $(this);
 
             // Auto hide the divs
-            methods.hideAll(prop.container);
+            methods.hideAll($('#'+obj.data('id')));
+
+			if(settings.changeText) {
+				methods.saveLink(obj);
+			}
 
             // When a link is clicked toggle the container
-            prop.currentLink.on('click',function(e){
-
+            obj.on('click',function(e){
                 // Prevent the default action of the link
                 e.preventDefault();
 
-				// Get the link
-				prop.currentLink = $(this);
+                prop.currentLink = $(this);
 
 				// Get the container id
 				prop.container = $('#'+prop.currentLink.data('id'));
 
-                // If accordian is set automatically close all open divs
-                if(settings.accordian === true){
-                    methods.hide();
+				// Get the link
+				methods.toggle(prop.currentLink);
 
-                    if (prop.container.is(':hidden')) {
-                        methods.show();
-                    }
-                }else{
-                    methods.toggle();
-                }
-
-                if(settings.activeLinkMode === true){
-                    if (prop.currentLink.hasClass(settings.activeLinkClass)){
-                        prop.currentLink.removeClass(settings.activeLinkClass);
-                    }else{
-                        prop.currentLink.addClass(settings.activeLinkClass);
-                    }
-                }
-
-                return this;
+				return this;
             });
         });
     };
