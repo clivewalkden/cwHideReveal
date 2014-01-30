@@ -19,7 +19,8 @@
             accordian: false,
             openClass: 'cw_open',
             activeLinkMode: true,
-            activeLinkClass: 'cw_active'
+            activeLinkClass: 'cw_active',
+            defaultOpen : null
         };
 
         // Merge default and user settings
@@ -32,6 +33,15 @@
 		};
 
 		var methods = {
+			checkData: function($this) {
+				if (null == prop.currentLink) {
+					prop.currentLink = $($this);
+				}
+
+				if (null == prop.container) {
+					prop.container = $('#'+prop.currentLink.data('id'));
+				}
+			},
 			hidden: function($this) {
 				return prop.container.hasClass(settings.openClass);
 			},
@@ -45,6 +55,8 @@
 				return false;
 			},
 			show: function($this){
+				methods.checkData($this);
+
 				prop.container.slideDown(settings.speed, settings.easing, function(){
 
 					if(settings.changeText === true){
@@ -83,6 +95,14 @@
 				var o_container = prop.container;
 				var o_link = prop.currentLink;
 
+				// Check if the same accordian is being closed
+				if(prop.accordians.length && o_container.attr('id') == prop.accordians[0].attr('id')) {
+					// Remove the accordian
+					prop.accordians.shift();
+
+					return false;
+				}
+
 				$.each(prop.accordians,function(index){
 					prop.container = $(this);
 					prop.currentLink = $('[data-id="'+$(this).attr('id')+'"]');
@@ -103,10 +123,8 @@
 			},
 			changeText: function($this) {
 				if(prop.container.is(":visible")) {
-					console.log('hideText');
 					$this.text($this.data('hideText'));
 				}else{
-					console.log('showText');
 					$this.text($this.data('showText'));
 				}
 			},
@@ -124,6 +142,10 @@
 
 			if(settings.changeText) {
 				methods.saveLink(obj);
+			}
+
+			if(settings.defaultOpen && obj.data('id') == settings.defaultOpen){
+				methods.show(obj);
 			}
 
             // When a link is clicked toggle the container

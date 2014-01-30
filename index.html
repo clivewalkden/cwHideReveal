@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
-<title>CWHideReveal v0.4 | jQuery Plugin | Clive Walkden</title>
+<title>CWHideReveal v0.5.0 | jQuery Plugin | Clive Walkden</title>
 <meta name="description" content="CWHideReveal is a simple jQuery Hide Reveal script without the bloat that other Hide Reveal scripts contain">
 
 <meta name="viewport" content="width=device-width">
@@ -20,7 +20,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="span6">
-					<h1>CW HideReveal v0.4</h1>
+					<h1>CW HideReveal v0.5.0</h1>
 				</div>
 				<div class="span6">
 					<h2>A working jQuery hide reveal script</h2>
@@ -33,7 +33,7 @@
 		<div class="row">
 			<div class="span12 center">
 				<a href="https://bitbucket.org/clivewalkden/cwhidereveal" class="btn btn-large btn-inverse" target="_blank">View Project on Bitbucket »</a>
-				<a href="https://bitbucket.org/clivewalkden/cwhidereveal/get/v0.4.0.zip" class="btn btn-large">Download CW Hide Reveal</a>
+				<a href="https://bitbucket.org/clivewalkden/cwhidereveal/get/v0.5.0.zip" class="btn btn-large">Download CW Hide Reveal</a>
 			</div>
 		</div>
 	</div>
@@ -147,6 +147,12 @@ $(function(){
 					<td><code>'cw_active'</code></td>
 					<td>This is the class that is applied to the active link.</td>
 				</tr>
+				<tr>
+					<td>autoOpen</td>
+					<td>string</td>
+					<td><code>null</code></td>
+					<td>The ID of a section to have open be default.</td>
+				</tr>
 				</table>
 			</div>
 		</div>
@@ -165,18 +171,18 @@ $(function(){
 				<h3>Accordian Demo</h3>
 				<p><strong>Code:</strong></p>
 				<pre class="prettyprint linenums lang-html">&lt;!-- Create the link and hidden content --&gt;
-&lt;a href="#" data-id="example-content2" class="demo2"&gt;Show Content&lt;/a&gt;
-&lt;div id="example-content2"&gt;
+&lt;a href="#" data-id="example-content01" class="demo2"&gt;Show Content 1&lt;/a&gt;
+&lt;div id="example-content01"&gt;
 	This is the hidden content you have just revealed
 &lt;/div&gt;
 
-&lt;a href="#" data-id="example-content3" class="demo2"&gt;Show Content 2&lt;/a&gt;
-&lt;div id="example-content3"&gt;
+&lt;a href="#" data-id="example-content02" class="demo2"&gt;Show Content 2&lt;/a&gt;
+&lt;div id="example-content02"&gt;
 	This is the hidden content you have just revealed
 &lt;/div&gt;
 
-&lt;a href="#" data-id="example-content4" class="demo2"&gt;Show Content 3&lt;/a&gt;
-&lt;div id="example-content4"&gt;
+&lt;a href="#" data-id="example-content03" class="demo2"&gt;Show Content 3&lt;/a&gt;
+&lt;div id="example-content03"&gt;
 	This is the hidden content you have just revealed
 &lt;/div&gt;
 
@@ -190,18 +196,18 @@ $(function(){
 });
 &lt;/script&gt;</pre>
 				<p><strong>Example:</strong></p>
-				<a href="#" data-id="example-content2" class="demo2">Show Content</a>
-				<div id="example-content2">
+				<a href="#" data-id="example-content01" class="demo2">Show Content 1</a>
+				<div id="example-content01">
 					This is the hidden content you have just revealed
 				</div>
 				<br class="br">
-				<a href="#" data-id="example-content3" class="demo2">Show Content 2</a>
-				<div id="example-content3">
+				<a href="#" data-id="example-content02" class="demo2">Show Content 2</a>
+				<div id="example-content02">
 					This is the hidden content you have just revealed
 				</div>
 				<br class="br">
-				<a href="#" data-id="example-content4" class="demo2">Show Content 3</a>
-				<div id="example-content4">
+				<a href="#" data-id="example-content03" class="demo2">Show Content 3</a>
+				<div id="example-content03">
 					This is the hidden content you have just revealed
 				</div>
 			</div>
@@ -212,8 +218,13 @@ $(function(){
 				<h3>Link Name Change Demo</h3>
 				<p><strong>Code:</strong></p>
 				<pre class="prettyprint linenums lang-html">&lt;!-- Create the link and hidden content --&gt;
-&lt;a href="#" data-id="example-content5" class="demo3"&gt;Show Content 4&lt;/a&gt;
-&lt;div id="example-content5"&gt;
+&lt;a href="#" data-id="example-content04" class="demo3"&gt;Show Content 4&lt;/a&gt;
+&lt;div id="example-content04"&gt;
+	This is the hidden content you have just revealed
+&lt;/div&gt;
+
+&lt;a href="#" data-id="example-content05" class="demo3"&gt;Show Content 5&lt;/a&gt;
+&lt;div id="example-content05"&gt;
 	This is the hidden content you have just revealed
 &lt;/div&gt;
 
@@ -227,13 +238,13 @@ $(function(){
 });
 &lt;/script&gt;</pre>
 				<p><strong>Example:</strong></p>
-				<a href="#" data-id="example-content5" class="demo3">Show Content 4</a>
-				<div id="example-content5">
+				<a href="#" data-id="example-content04" class="demo3">Show Content 4</a>
+				<div id="example-content04">
 					This is the hidden content you have just revealed
 				</div>
 				<br class="br">
-				<a href="#" data-id="example-content6" class="demo3">Show Content 5</a>
-				<div id="example-content6">
+				<a href="#" data-id="example-content05" class="demo3">Show Content 5</a>
+				<div id="example-content05">
 					This is the hidden content you have just revealed
 				</div>
 			</div>
@@ -244,18 +255,18 @@ $(function(){
 				<h3>Active Link Class Demo</h3>
 				<p><strong>Code:</strong></p>
 				<pre class="prettyprint linenums lang-html">&lt;!-- Create the link and hidden content --&gt;
-&lt;a href="#" data-id="example-content6" class="demo4"&gt;Show Content&lt;/a&gt;
-&lt;div id="example-content6"&gt;
+&lt;a href="#" data-id="example-content06" class="demo4"&gt;Show Content&lt;/a&gt;
+&lt;div id="example-content06"&gt;
 	This is the hidden content you have just revealed
 &lt;/div&gt;
 &lt;br class="br"&gt;
-&lt;a href="#" data-id="example-content7" class="demo4"&gt;Show Content 2&lt;/a&gt;
-&lt;div id="example-content7"&gt;
+&lt;a href="#" data-id="example-content07" class="demo4"&gt;Show Content 2&lt;/a&gt;
+&lt;div id="example-content07"&gt;
 	This is the hidden content you have just revealed
 &lt;/div&gt;
 &lt;br class="br"&gt;
-&lt;a href="#" data-id="example-content8" class="demo4"&gt;Show Content 3&lt;/a&gt;
-&lt;div id="example-content8"&gt;
+&lt;a href="#" data-id="example-content08" class="demo4"&gt;Show Content 3&lt;/a&gt;
+&lt;div id="example-content08"&gt;
 	This is the hidden content you have just revealed
 &lt;/div&gt;
 
@@ -269,18 +280,66 @@ $(function(){
 });
 &lt;/script&gt;</pre>
 				<p><strong>Example:</strong></p>
-				<a href="#" data-id="example-content7" class="demo4">Show Content 6</a>
-				<div id="example-content7">
+				<a href="#" data-id="example-content06" class="demo4">Show Content 6</a>
+				<div id="example-content06">
 					This is the hidden content you have just revealed
 				</div>
 				<br class="br">
-				<a href="#" data-id="example-content8" class="demo4">Show Content 7</a>
-				<div id="example-content8">
+				<a href="#" data-id="example-content07" class="demo4">Show Content 7</a>
+				<div id="example-content07">
 					This is the hidden content you have just revealed
 				</div>
 				<br class="br">
-				<a href="#" data-id="example-content9" class="demo4">Show Content 8</a>
-				<div id="example-content9">
+				<a href="#" data-id="example-content08" class="demo4">Show Content 8</a>
+				<div id="example-content08">
+					This is the hidden content you have just revealed
+				</div>
+				<br class="br">
+				<br>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span12">
+				<h3>Auto Open Class Demo</h3>
+				<p><strong>Code:</strong></p>
+				<pre class="prettyprint linenums lang-html">&lt;!-- Create the link and hidden content --&gt;
+&lt;a href="#" data-id="example-content09" class="demo5"&gt;Show Content&lt;/a&gt;
+&lt;div id="example-content09"&gt;
+	This is the hidden content you have just revealed
+&lt;/div&gt;
+&lt;br class="br"&gt;
+&lt;a href="#" data-id="example-content10" class="demo5"&gt;Show Content 2&lt;/a&gt;
+&lt;div id="example-content10"&gt;
+	This is the hidden content you have just revealed
+&lt;/div&gt;
+&lt;br class="br"&gt;
+&lt;a href="#" data-id="example-content11" class="demo5"&gt;Show Content 3&lt;/a&gt;
+&lt;div id="example-content11"&gt;
+	This is the hidden content you have just revealed
+&lt;/div&gt;
+
+&lt;script&gt;
+// Finally call the script
+$(function(){
+	$('.demo5').CWHideReveal({
+        defaultOpen   : 'example-content11'
+    });
+});
+&lt;/script&gt;</pre>
+				<p><strong>Example:</strong></p>
+				<a href="#" data-id="example-content09" class="demo5">Show Content 9</a>
+				<div id="example-content09">
+					This is the hidden content you have just revealed
+				</div>
+				<br class="br">
+				<a href="#" data-id="example-content10" class="demo5">Show Content 10</a>
+				<div id="example-content10">
+					This is the hidden content you have just revealed
+				</div>
+				<br class="br">
+				<a href="#" data-id="example-content11" class="demo5">Show Content 11</a>
+				<div id="example-content11">
 					This is the hidden content you have just revealed
 				</div>
 				<br class="br">
@@ -299,6 +358,12 @@ $(function(){
 		<div class="row">
 			<div class="span12">
 				<table class="table table-bordered table-striped">
+				<tr>
+					<td><strong>v0.5.0</strong></td>
+					<td>30th January 2014</td>
+					<td>Completely re-coded the script<br>
+						Added the ability to have a container open by default through the script options.</td>
+				</tr>
 				<tr>
 					<td><strong>v0.4</strong></td>
 					<td>27th September 2013</td>
@@ -332,7 +397,7 @@ $(function(){
 <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script> -->
 <script>window.jQuery || document.write('<script src="libs/jquery/jquery.js"><\/script>')</script>
 <!--<script src="dist/cw_hidereveal.js"></script>-->
-<script src="src/cw_hidereveal.js?v=1.5.03"></script>
+<script src="src/cw_hidereveal.js?v=0.5.0"></script>
 <script src="http://clivewalkden.co.uk/code/template/js/bootstrap.js"></script>
 <script src="http://clivewalkden.co.uk/code/template/js/prettify.js"></script>
 
@@ -357,8 +422,11 @@ $(function(){
     });
 
     $('.demo4').CWHideReveal({
-        changeText  : false,
         openClass   : 'demo4-open'
+    });
+
+    $('.demo5').CWHideReveal({
+        defaultOpen	: 'example-content10'
     });
 });
 </script>
