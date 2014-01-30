@@ -30,6 +30,11 @@ http://clivewalkden.co.uk/code/cw_hide_reveal/
 
 ## Release History
 
+#### v0.5.0 - 30th January 2014 ####
+* Completely re-coded the script.
+* Added the ability to have a container open by default through the script options. (As requested by [Mark Plunkett][markurl])
+[markurl]: http://www.mark-plunkett.co.uk
+
 #### v0.4 - 27th September 2013 ####
 * Added unit test.
 * Gave the plugin a small update to improve compatability
