@@ -29,20 +29,20 @@
 		var prop = {
 			container		: null,
 			currentLink		: null,
-			accordians		: [],
+			accordians		: []
 		};
 
 		var methods = {
 			checkData: function($this) {
-				if (null == prop.currentLink) {
+				if (null === prop.currentLink) {
 					prop.currentLink = $($this);
 				}
 
-				if (null == prop.container) {
+				if (null === prop.container) {
 					prop.container = $('#'+prop.currentLink.data('id'));
 				}
 			},
-			hidden: function($this) {
+			hidden: function() {
 				return prop.container.hasClass(settings.openClass);
 			},
 			toggle: function($this){
@@ -96,14 +96,14 @@
 				var o_link = prop.currentLink;
 
 				// Check if the same accordian is being closed
-				if(prop.accordians.length && o_container.attr('id') == prop.accordians[0].attr('id')) {
+				if(prop.accordians.length && o_container.attr('id') === prop.accordians[0].attr('id')) {
 					// Remove the accordian
 					prop.accordians.shift();
 
 					return false;
 				}
 
-				$.each(prop.accordians,function(index){
+				$.each(prop.accordians,function(){
 					prop.container = $(this);
 					prop.currentLink = $('[data-id="'+$(this).attr('id')+'"]');
 					methods.hide($(this));
@@ -135,7 +135,7 @@
 
         this.each(function(){
 			// Get the link
-			obj = $(this);
+			var obj = $(this);
 
             // Auto hide the divs
             methods.hideAll($('#'+obj.data('id')));
@@ -144,7 +144,7 @@
 				methods.saveLink(obj);
 			}
 
-			if(settings.defaultOpen && obj.data('id') == settings.defaultOpen){
+			if(settings.defaultOpen && obj.data('id') === settings.defaultOpen){
 				methods.show(obj);
 			}
 
