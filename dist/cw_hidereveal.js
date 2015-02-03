@@ -1,7 +1,15 @@
-/*! CW Hide Reveal - v0.5.0 - 2014-01-30
+/*! CW Hide Reveal - v0.6.0 - 2015-02-03
 * https://github.com/clivewalkden/cwHideReveal
-* Copyright (c) 2014 Clive Walkden; Licensed MIT */
-(function ($) {
+* Copyright (c) 2015 Clive Walkden; Licensed MIT */
+(function (factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(['jquery'], factory);
+    } else {
+        // Browser globals
+        factory(jQuery);
+    }
+}(function ($) {
     $.fn.CWHideReveal = function (custom) {
 
         // Default plugin settings
@@ -160,4 +168,4 @@
             });
         });
     };
-})(jQuery);
+}));

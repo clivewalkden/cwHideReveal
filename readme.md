@@ -35,6 +35,9 @@ http://clivewalkden.co.uk/code/cw_hide_reveal/
 
 ## Release History
 
+#### v0.6.0 - 3rd February 2015 ####
+* Updated the script for AMD
+
 #### v0.5.0 - 30th January 2014 ####
 * Completely re-coded the script.
 * Added the ability to have a container open by default through the script options. (As requested by [Mark Plunkett][markurl])
