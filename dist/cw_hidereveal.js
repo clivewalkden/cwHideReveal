@@ -1,4 +1,4 @@
-/*! CW Hide Reveal - v0.6.0 - 2015-02-03
+/*! CW Hide Reveal - v0.6.1 - 2015-02-03
 * https://github.com/clivewalkden/cwHideReveal
 * Copyright (c) 2015 Clive Walkden; Licensed MIT */
 (function (factory) {

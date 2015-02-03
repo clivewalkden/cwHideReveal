@@ -2,7 +2,7 @@
 
 A working jQuery hide reveal script
 
-[![Build Status](https://travis-ci.org/clivewalkden/cwHideReveal.png?branch=develop)](https://travis-ci.org/clivewalkden/cwHideReveal)
+[![Build Status](https://travis-ci.org/clivewalkden/cwHideReveal.png?branch=master)](https://travis-ci.org/clivewalkden/cwHideReveal)
 
 ## Getting Started
 Download the [production version][min] or the [development version][max].
@@ -34,6 +34,9 @@ _(Coming soon)_
 http://clivewalkden.co.uk/code/cw_hide_reveal/
 
 ## Release History
+
+#### v0.6.1 - 3rd February 2015 ####
+* Added Bower support
 
 #### v0.6.0 - 3rd February 2015 ####
 * Updated the script for AMD
