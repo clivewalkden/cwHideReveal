@@ -1,6 +1,6 @@
 {
   "name": "CWHideReveal",
-  "version": "0.6.0",
+  "version": "0.6.2",
   "homepage": "http://clivewalkden.co.uk/code/cw_hide_reveal/",
   "authors": [
     "Clive Walkden <clive@sozodesign.co.uk>"
@@ -12,16 +12,18 @@
   ],
   "license": "MIT",
   "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
+  	"src",
     "test",
-    "tests",
-    "css/main.css",
-    "libs/*",
-    "CONTRIBUTING.md",
-    "index.html",
-    "nbproject/"
+    "libs",
+  	"**/*.txt",
+  	".editorconfig",
+  	".travis.yml",
+  	".bowerrc",
+  	".jshintrc",
+    ".gitignore",
+  	"index.html",
+  	"CONTRIBUTING.md",
+    "Gruntfile.js"
   ],
   "dependancies": {
     "jquery": "~1.7.1"
