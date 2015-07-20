@@ -1,11 +1,6 @@
-/*
- * cw_hidereveal
- * https://github.com/clivewalkden/cwHideReveal
- *
- * Copyright (c) 2013 Clive Walkden
- * Licensed under the MIT license.
- */
-
+/*! CW Hide Reveal - v0.7.0 - 2015-07-20
+* https://github.com/clivewalkden/cwHideReveal
+* Copyright (c) 2015 Clive Walkden; Licensed MIT */
 (function (factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
@@ -43,7 +38,6 @@
 			container		: null,
 			currentLink		: null,
 			accordians		: [],
-			internalLinks 	: [],
 		};
 
 		var methods = {
@@ -152,9 +146,6 @@
 			},
 			saveLink: function($this) {
 				$this.data('showText',$this.text()).data('hideText',settings.hideText);
-			},
-			getLinks: function($this) {
-				prop.internalLinks.push($this.find('a.'+settings.internalLinkClass));
 			}
 		};
 
@@ -172,8 +163,7 @@
             if(settings.internalLinks) {
             	$('#'+obj.data('id')).find('.'+settings.internalLinkClass).each(function(){
             		$(this).on('click',function(){
-            			// Trigger click on matching link?
-            			console.log($('[data-id="'+$(this).data('trigger')+'"]'));
+            			// Trigger click on matching link
             			$('[data-id="'+$(this).data('trigger')+'"]').trigger('click');
             		});
             	});
