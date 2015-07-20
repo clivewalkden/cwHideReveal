@@ -1,0 +1,34 @@
+{
+  "name": "CWHideReveal",
+  "version": "0.6.2",
+  "homepage": "http://clivewalkden.co.uk/code/cw_hide_reveal/",
+  "authors": [
+    "Clive Walkden <clive@sozodesign.co.uk>"
+  ],
+  "description": "A simple version of a Hide Reveal script. Many Hide Reveal scripts are bloated and don't always work in all layouts.",
+  "main": "dist/cw_hidereveal.min.js",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "ignore": [
+  	"src",
+    "test",
+    "libs",
+  	"**/*.txt",
+  	".editorconfig",
+  	".travis.yml",
+  	".bowerrc",
+  	".jshintrc",
+    ".gitignore",
+  	"index.html",
+  	"CONTRIBUTING.md",
+    "Gruntfile.js"
+  ],
+  "dependancies": {
+    "jquery": "~1.7.1"
+  },
+  "devDependencies": {
+    "qunit": "~1.12.0"
+  }
+}

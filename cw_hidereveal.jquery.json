@@ -2,7 +2,7 @@
   "name": "cw_hidereveal",
   "title": "CW Hide Reveal",
   "description": "A working jQuery hide reveal script",
-  "version": "0.5.0",
+  "version": "0.7.0",
   "homepage": "https://github.com/clivewalkden/cwHideReveal",
   "author": {
     "name": "Clive Walkden",
@@ -21,7 +21,7 @@
     }
   ],
   "dependencies": {
-    "jquery": "*"
+    "jquery": "^1.7.1"
   },
   "keywords": []
 }

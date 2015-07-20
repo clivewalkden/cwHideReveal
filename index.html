@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
-<title>CWHideReveal v0.5.0 | jQuery Plugin | Clive Walkden</title>
+<title>CWHideReveal v0.6.2 | jQuery Plugin | Clive Walkden</title>
 <meta name="description" content="CWHideReveal is a simple jQuery Hide Reveal script without the bloat that other Hide Reveal scripts contain">
 
 <meta name="viewport" content="width=device-width">
 
-<link href="http://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
 
-<link href="http://clivewalkden.co.uk/code/template/css/bootstrap.css" rel="stylesheet">
-<link href="http://clivewalkden.co.uk/code/template/css/main.css" rel="stylesheet">
+<link href="//clivewalkden.co.uk/code/template/css/bootstrap.css" rel="stylesheet">
+<link href="//clivewalkden.co.uk/code/template/css/main.css" rel="stylesheet">
 <link href="css/cw_hidereveal.css" rel="stylesheet">
-<link href="http://clivewalkden.co.uk/code/template/css/prettify.css" rel="stylesheet">
+<link href="//clivewalkden.co.uk/code/template/css/prettify.css" rel="stylesheet">
 </head>
 <body>
 <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
@@ -20,7 +20,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="span6">
-					<h1>CW HideReveal v0.5.0</h1>
+					<h1>CW HideReveal v0.6.2</h1>
 				</div>
 				<div class="span6">
 					<h2>A working jQuery hide reveal script</h2>
@@ -32,8 +32,8 @@
     <div class="container">
 		<div class="row">
 			<div class="span12 center">
-				<a href="https://bitbucket.org/clivewalkden/cwhidereveal" class="btn btn-large btn-inverse" target="_blank">View Project on Bitbucket »</a>
-				<a href="https://bitbucket.org/clivewalkden/cwhidereveal/get/v0.5.0.zip" class="btn btn-large">Download CW Hide Reveal</a>
+				<a href="https://github.com/clivewalkden/cwHideReveal" class="btn btn-large btn-inverse" target="_blank">View Project on Github »</a>
+				<a href="https://github.com/clivewalkden/cwHideReveal/archive/master.zip" class="btn btn-large">Download CW Hide Reveal</a>
 			</div>
 		</div>
 	</div>
@@ -41,7 +41,7 @@
 	<div role="main" class="container">
 		<div class="row">
 			<div class="span12">
-				<img src="https://travis-ci.org/clivewalkden/cwHideReveal.png?branch=develop">
+				<img src="https://travis-ci.org/clivewalkden/cwHideReveal.png?branch=master">
 				<p>A simple version of a Hide Reveal script. Many Hide Reveal scripts are bloated and don't always work in all layouts.</p>
 			</div>
 		</div>
@@ -359,6 +359,21 @@ $(function(){
 			<div class="span12">
 				<table class="table table-bordered table-striped">
 				<tr>
+					<td><strong>v0.6.2</strong></td>
+					<td>18th March 2015</td>
+					<td>Changed the bower ignore files slightly</td>
+				</tr>
+				<tr>
+					<td><strong>v0.6.1</strong></td>
+					<td>3rd February 2015</td>
+					<td>Added Bower support</td>
+				</tr>
+				<tr>
+					<td><strong>v0.6.0</strong></td>
+					<td>3rd February 2015</td>
+					<td>Updated the script for AMD</td>
+				</tr>
+				<tr>
 					<td><strong>v0.5.0</strong></td>
 					<td>30th January 2014</td>
 					<td>Completely re-coded the script<br>
@@ -397,9 +412,9 @@ $(function(){
 <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script> -->
 <script>window.jQuery || document.write('<script src="libs/jquery/jquery.js"><\/script>')</script>
 <!--<script src="dist/cw_hidereveal.js"></script>-->
-<script src="src/cw_hidereveal.js?v=0.5.0"></script>
-<script src="http://clivewalkden.co.uk/code/template/js/bootstrap.js"></script>
-<script src="http://clivewalkden.co.uk/code/template/js/prettify.js"></script>
+<script src="src/cw_hidereveal.js?v=0.6.1"></script>
+<script src="//clivewalkden.co.uk/code/template/js/bootstrap.js"></script>
+<script src="//clivewalkden.co.uk/code/template/js/prettify.js"></script>
 
 <script>
 $(function(){
@@ -432,10 +447,13 @@ $(function(){
 </script>
 
 <script>
-//var _gaq=[['_setAccount','UA-00000000-1'],['_trackPageview']];
-//(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-//g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-//s.parentNode.insertBefore(g,s)}(document,'script'));
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-38760705-4', 'auto');
+  ga('send', 'pageview');
 </script>
 
 </body>
