@@ -29,7 +29,7 @@
             activeLinkMode 		: true,
             activeLinkClass 	: 'cw_active',
             defaultOpen 		: null,
-            internalLinks 		: true,
+            internalLinks 		: false,
             internalLinkClass 	: 'cw_link',
 			loaded  			: function(){},
 			opened    			: function(){},
