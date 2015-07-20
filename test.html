@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<title>CWHideReveal v0.6.2 | jQuery Plugin | Clive Walkden</title>
+<meta name="description" content="CWHideReveal is a simple jQuery Hide Reveal script without the bloat that other Hide Reveal scripts contain">
+<meta name="viewport" content="width=device-width">
+
+<link href="//fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+<link href="css/cw_hidereveal.css" rel="stylesheet">
+
+<style>
+body {
+	font-size: 14px;
+	font-family: 'Roboto Condensed';
+}
+
+.steps {
+	float: left;
+	display: block;
+	margin-right: 2.35765%;
+	width: 100%;
+}
+
+.step-row {
+	margin-bottom: 1em;
+}
+
+.step-heading {
+	-webkit-transition: all 0.15s ease-out 0s;
+	-moz-transition: all 0.15s ease-out 0s;
+	transition: all 0.15s ease-out 0s;
+	padding: 1em;
+	border: 1px solid #cbcccd;
+	color: #cbcccd;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+a.btn-edit {
+	display: inline-block;
+	float: right;
+	color: #79a237;
+	font-weight: 600;
+	-webkit-transition: all 0.15s ease-out 0s;
+	-moz-transition: all 0.15s ease-out 0s;
+	transition: all 0.15s ease-out 0s;
+}
+
+h2 strong {
+	margin-left: 1em;
+	font-size: 1.4em;
+}
+
+.step-info {
+	display: none;
+	padding: 1em;
+	max-width: 61.25em;
+	margin-left: auto;
+	margin-right: auto;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+	<section class="steps">
+
+		<article id="step-1" class="step-row">
+
+			<header class="step-heading">
+				<a href="javascript:void(0);" title="Edit" class="btn-edit js-cwhidereveal-furniture-steps" data-id="step-1-info">Edit</a>
+				<h2>Step 1 <strong>Select Fabric</strong></h2>
+			</header>
+
+			<div id="step-1-info" class="step-info equal-heights" style="display: none;">
+
+				<p>Coming soon.</p>
+
+				<a href="javascript:void(0);" data-trigger="step-2-info" title="Next step" class="btn cw_link">Next step</a>
+
+				<a href="javascript:void(0);" data-trigger="step-3-info" title="Next step" class="btn cw_link">Third Step</a>
+
+			</div>
+
+		</article>
+
+		<article id="step-2" class="step-row">
+
+			<header class="step-heading">
+				<a href="javascript:void(0);" data-id="step-2-info" title="Edit" class="btn-edit js-cwhidereveal-furniture-steps">Edit</a>
+				<h2>Step 2 <strong>Select leg ‘wood type’</strong></h2>
+			</header>
+
+			<div id="step-2-info" class="step-info equal-heights" style="display: none;">
+
+				<p>Coming soon.</p>
+
+				<a href="javascript:void(0);" data-trigger="step-3-info" title="Next step" class="btn cw_link">Next step</a>
+
+			</div>
+
+		</article>
+
+		<article id="step-3" class="step-row">
+
+			<header class="step-heading">
+				<a href="javascript:void(0);" data-id="step-3-info" title="Edit" class="btn-edit js-cwhidereveal-furniture-steps">Edit</a>
+				<h2>Step 2 <strong>Select leg ‘castor type’</strong></h2>
+			</header>
+
+			<div id="step-3-info" class="step-info equal-heights" style="display: none;">
+
+				<p>Coming soon.</p>
+
+				<a href="javascript:void(0);" data-trigger="step-4-info" title="Next step" class="btn cw_link">Next step</a>
+
+			</div>
+
+		</article>
+
+	</section>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="libs/jquery/jquery.js"><\/script>')</script>
+<script src="src/cw_hidereveal.js?v=0.6.2"></script>
+
+
+<script>
+$(function(){
+	console.log('test');
+
+    $('.js-cwhidereveal-furniture-steps').CWHideReveal({
+		openClass: 'open',
+		accordian: true,
+        activeLinkClass: 'active',
+        loaded: function(){
+        	console.log('loaded');
+        },
+        opened: function(){
+        	console.log('opened');
+        },
+        closed: function(){
+        	console.log('closed');
+        }
+	});
+});
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-38760705-4', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</body>
+</html>
