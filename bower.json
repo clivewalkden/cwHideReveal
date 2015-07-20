@@ -1,6 +1,6 @@
 {
   "name": "CWHideReveal",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "homepage": "http://clivewalkden.co.uk/code/cw_hide_reveal/",
   "authors": [
     "Clive Walkden <clive@sozodesign.co.uk>"
@@ -22,6 +22,7 @@
   	".jshintrc",
     ".gitignore",
   	"index.html",
+    "test.html",
   	"CONTRIBUTING.md",
     "Gruntfile.js"
   ],
