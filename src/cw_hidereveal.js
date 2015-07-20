@@ -19,16 +19,21 @@
 
         // Default plugin settings
         var defaults = {
-            speed: 300,
-            easing: '',
-            changeText: false,
-            showText: this.text(),
-            hideText: 'Hide',
-            accordian: false,
-            openClass: 'cw_open',
-            activeLinkMode: true,
-            activeLinkClass: 'cw_active',
-            defaultOpen : null
+            speed				: 300,
+            easing				: '',
+            changeText			: false,
+            showText			: this.text(),
+            hideText			: 'Hide',
+            accordian 			: false,
+            openClass 			: 'cw_open',
+            activeLinkMode 		: true,
+            activeLinkClass 	: 'cw_active',
+            defaultOpen 		: null,
+            internalLinks 		: true,
+            internalLinkClass 	: 'cw_link',
+			loaded  			: function(){},
+			opened    			: function(){},
+			closed    			: function(){}
         };
 
         // Merge default and user settings
@@ -37,7 +42,8 @@
 		var prop = {
 			container		: null,
 			currentLink		: null,
-			accordians		: []
+			accordians		: [],
+			internalLinks 	: [],
 		};
 
 		var methods = {
@@ -67,6 +73,10 @@
 
 				prop.container.slideDown(settings.speed, settings.easing, function(){
 
+					if (settings.opened){
+						settings.opened.call(this);
+					}
+
 					if(settings.changeText === true){
 						methods.changeText($this);
 					}
@@ -85,6 +95,10 @@
 				}
 			},
 			hide: function($this) {
+				if (settings.closed){
+					settings.closed.call(this);
+				}
+
 				if(settings.activeLinkMode) {
 					prop.currentLink.removeClass(settings.activeLinkClass);
 				}
@@ -138,6 +152,9 @@
 			},
 			saveLink: function($this) {
 				$this.data('showText',$this.text()).data('hideText',settings.hideText);
+			},
+			getLinks: function($this) {
+				prop.internalLinks.push($this.find('a.'+settings.internalLinkClass));
 			}
 		};
 
@@ -145,8 +162,22 @@
 			// Get the link
 			var obj = $(this);
 
+			if (settings.loaded){
+				settings.loaded.call(this);
+			}
+
             // Auto hide the divs
             methods.hideAll($('#'+obj.data('id')));
+
+            if(settings.internalLinks) {
+            	$('#'+obj.data('id')).find('.'+settings.internalLinkClass).each(function(){
+            		$(this).on('click',function(){
+            			// Trigger click on matching link?
+            			console.log($('[data-id="'+$(this).data('trigger')+'"]'));
+            			$('[data-id="'+$(this).data('trigger')+'"]').trigger('click');
+            		});
+            	});
+            }
 
 			if(settings.changeText) {
 				methods.saveLink(obj);
