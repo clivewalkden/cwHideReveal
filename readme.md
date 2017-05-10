@@ -36,6 +36,9 @@ http://clivewalkden.co.uk/code/cw_hide_reveal/
 
 ## Release History
 
+#### v0.7.1 - 10th May 2017 ####
+* Added main field to the package.json
+
 #### v0.7.0 - 20th July 2015 ####
 * Added callbacks
 * Added support for internal buttons triggering other dropdowns
