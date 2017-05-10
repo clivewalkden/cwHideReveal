@@ -1,9 +1,10 @@
 {
   "name": "cw_hidereveal",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "engines": {
     "node": ">= 0.10.0"
   },
+  "main": "dist/cw_hidereveal.js",
   "author": "Clive Walkden <clivewalkden@gmail.com>",
   "keywords": [
     "jquery-plugin",
