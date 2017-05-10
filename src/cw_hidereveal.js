@@ -1,11 +1,3 @@
-/*
- * cw_hidereveal
- * https://github.com/clivewalkden/cwHideReveal
- *
- * Copyright (c) 2013 Clive Walkden
- * Licensed under the MIT license.
- */
-
 (function (factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.

@@ -1,6 +1,12 @@
-/*! CW Hide Reveal - v0.7.1 - 2017-05-10
-* https://github.com/clivewalkden/cwHideReveal
-* Copyright (c) 2017 Clive Walkden; Licensed MIT */
+/*
+ * cw_hidereveal 0.7.1
+ * 
+ * 
+ *
+ * Copyright 2017, Clive Walkden <clivewalkden@gmail.com>
+ * Released under the MIT license.
+*/
+
 (function (factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
