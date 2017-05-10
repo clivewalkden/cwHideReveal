@@ -4,6 +4,7 @@
   "engines": {
     "node": ">= 0.10.0"
   },
+  "main": "dist/cw_hidereveal.js",
   "author": "Clive Walkden <clivewalkden@gmail.com>",
   "keywords": [
     "jquery-plugin",
