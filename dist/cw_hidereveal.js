@@ -1,11 +1,11 @@
 /*
  * cw_hidereveal 0.7.1
- * 
- * 
+ * A simple version of a Hide Reveal script. Many Hide Reveal scripts are bloated and don't always work in all layouts.
+ * http://clivewalkden.co.uk/code/cw_hide_reveal/
  *
- * Copyright 2017, Clive Walkden <clivewalkden@gmail.com>
+ * Copyright 2018, Clive Walkden <clivewalkden@gmail.com>
  * Released under the MIT license.
-*/
+ */
 
 (function (factory) {
     if (typeof define === 'function' && define.amd) {

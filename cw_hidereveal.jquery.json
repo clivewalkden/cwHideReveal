@@ -1,8 +1,8 @@
 {
   "name": "cw_hidereveal",
   "title": "CW Hide Reveal",
-  "description": "A working jQuery hide reveal script",
-  "version": "0.7.1",
+  "description": "A simple version of a Hide Reveal script. Many Hide Reveal scripts are bloated and don't always work in all layouts.",
+  "version": "1.0.0",
   "homepage": "https://github.com/clivewalkden/cwHideReveal",
   "author": {
     "name": "Clive Walkden",

@@ -1,11 +1,14 @@
 {
   "name": "cw_hidereveal",
-  "version": "0.7.1",
+  "version": "1.0.0",
+  "description": "A simple version of a Hide Reveal script. Many Hide Reveal scripts are bloated and don't always work in all layouts.",
+  "main": "dist/cw_hidereveal.js",
+  "author": "Clive Walkden <clivewalkden@gmail.com>",
+  "homepage": "http://clivewalkden.co.uk/code/cw_hide_reveal/",
+  "license": "MIT",
   "engines": {
     "node": ">=4"
   },
-  "main": "dist/cw_hidereveal.js",
-  "author": "Clive Walkden <clivewalkden@gmail.com>",
   "keywords": [
     "jquery-plugin",
     "ecosystem:jquery",
@@ -15,7 +18,9 @@
     "jquery": "^1.7.1"
   },
   "scripts": {
-    "test": "grunt test"
+    "clean": "rimraf dist",
+    "build": "npm run clean && gulp",
+    "test": "gulp test"
   },
   "devDependencies": {
     "fs": "0.0.1-security",
@@ -24,16 +29,18 @@
     "gulp-clean": "^0.3.0",
     "gulp-concat": "^2.6.0",
     "gulp-if": "^2.0.2",
+    "gulp-jasmine-browser": "^3.0.1",
     "gulp-jshint": "^2.0.0",
     "gulp-load-plugins": "^1.5.0",
     "gulp-plumber": "^1.0.1",
     "gulp-qunit": "^1.5.0",
     "gulp-size": "^2.1.0",
     "gulp-uglify": "^2.0.0",
+    "jasmine": "^2.9.0",
     "jshint": "^2.9.4",
-    "qunitjs": "^2.3.2"
+    "qunitjs": "^2.3.2",
+    "rimraf": "^2.6.2"
   },
-  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/clivewalkden/cwHideReveal"
