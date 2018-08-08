@@ -43,6 +43,7 @@ http://clivewalkden.co.uk/code/cw_hide_reveal/
 * Added callbacks
 * Added support for internal buttons triggering other dropdowns
 
+>>>>>>> c4ac055750f8f979beefbf8c4ac8fbaaef3c1bc1
 #### v0.6.2 - 18th March 2015 ####
 * Changed the bower ignore files slightly
 
