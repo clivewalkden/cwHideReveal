@@ -3,6 +3,7 @@
 A working jQuery hide reveal script
 
 [![Build Status](https://travis-ci.org/clivewalkden/cwHideReveal.png?branch=master)](https://travis-ci.org/clivewalkden/cwHideReveal)
+[![Join the chat at https://gitter.im/clivewalkden/cwHideReveal](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/clivewalkden/cwHideReveal?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Getting Started
 Download the [production version][min] or the [development version][max].
@@ -35,6 +36,14 @@ http://clivewalkden.co.uk/code/cw_hide_reveal/
 
 ## Release History
 
+#### v0.7.1 - 10th May 2017 ####
+* Added main field to the package.json
+
+#### v0.7.0 - 20th July 2015 ####
+* Added callbacks
+* Added support for internal buttons triggering other dropdowns
+
+>>>>>>> c4ac055750f8f979beefbf8c4ac8fbaaef3c1bc1
 #### v0.6.2 - 18th March 2015 ####
 * Changed the bower ignore files slightly
 
