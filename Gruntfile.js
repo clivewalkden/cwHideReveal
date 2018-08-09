@@ -28,7 +28,9 @@ module.exports = function(grunt) {
 	connect: {
       server: {
         options: {
-          port: 8085 // This is a random port, feel free to change it.
+          hostname: '*',
+          port: 8085, // This is a random port, feel free to change it.
+          debug: true,
 		}
       }
 	},
@@ -44,8 +46,8 @@ module.exports = function(grunt) {
 	qunit: {
       all: {
         options: {
-          urls: ['1.7.1','1.9.0', '2.0.0b1'].map(function(version) {
-            return 'http://localhost:<%= connect.server.options.port %>/test/cw_hidereveal.html?jquery=' + version;
+          urls: ['1.7.1','1.12.4', '2.2.4', '3.0.0', '3.3.1'].map(function(version) {
+            return 'http://127.0.0.1:<%= connect.server.options.port %>/test/cw_hidereveal.html?jquery=' + version;
           })
         }
       }

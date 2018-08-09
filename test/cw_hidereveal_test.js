@@ -20,9 +20,9 @@
       throws(block, [expected], [message])
   */
 
-  module('Default Functionality', {
+  QUnit.module('Default Functionality', {
     // This will run before each test in this module.
-    setup: function() {
+    before: function() {
       this.hidereveal = $('.js-hide-reveal');
       this.link = $('.demo1');
       this.content = $('#test-content');
@@ -31,17 +31,17 @@
     }
   });
 
-  test("Basic", function(){
-    expect(3);
+  QUnit.test("Basic", function(assert){
+    assert.expect(3);
 
-  	ok(this.link.is(':visible'),'Clickable area is visible');
-  	ok(this.content.is(':hidden'),'Content is hidden');
+  	assert.ok(this.link.is(':visible'),'Clickable area is visible');
+  	assert.ok(this.content.is(':hidden'),'Content is hidden');
   	this.link.click();
-  	ok(this.content.is(':visible'),'Content is shown after button click');
+  	assert.ok(this.content.is(':visible'),'Content is shown after button click');
   });
 
-  module('Accordian', {
-    setup: function(){
+  QUnit.module('Accordion', {
+    before: function(){
       this.hidereveal = $('.js-hide-reveal');
       this.link = $('.demo1');
       this.link2 = $('.demo2');
@@ -49,27 +49,27 @@
       this.content2 = $('#test-content2');
 
       $(this.hidereveal).CWHideReveal({
-        accordian   : true,
+        accordion   : true,
         openClass   : 'demo2-open'
       });
     }
   });
 
-  test("Accordian", function(){
-    expect(5);
+  QUnit.test("Accordion", function(assert){
+    assert.expect(5);
 
-    ok(this.content.is(':hidden'),'Content 1 is hidden');
-    ok(this.content2.is(':hidden'),'Content 2 is hidden');
+    assert.ok(this.content.is(':hidden'),'Content 1 is hidden');
+    assert.ok(this.content2.is(':hidden'),'Content 2 is hidden');
 
     this.link.click();
 
-    ok(this.content.is(':visible'),'Content 1 is visible');
-    ok(this.content2.is(':hidden'),'Content 2 is hidden');
+    assert.ok(this.content.is(':visible'),'Content 1 is visible');
+    assert.ok(this.content2.is(':hidden'),'Content 2 is hidden');
 
     this.link2.click();
 
     //ok(this.content.is(':hidden'),'Content 1 is hidden');
-    ok(this.content2.is(':visible'),'Content 2 is visible');
+    assert.ok(this.content2.is(':visible'),'Content 2 is visible');
   });
 
 }(jQuery));

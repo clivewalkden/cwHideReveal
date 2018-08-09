@@ -43,7 +43,6 @@ http://clivewalkden.co.uk/code/cw_hide_reveal/
 * Added callbacks
 * Added support for internal buttons triggering other dropdowns
 
->>>>>>> c4ac055750f8f979beefbf8c4ac8fbaaef3c1bc1
 #### v0.6.2 - 18th March 2015 ####
 * Changed the bower ignore files slightly
 
@@ -66,7 +65,7 @@ http://clivewalkden.co.uk/code/cw_hide_reveal/
 * Added the option to add an active class to the current selected link on click.
 
 #### v0.2 - 29nd January 2013 ####
-* Finalised the accordian command.
+* Finalised the accordion command.
 
 #### v0.1 - 22nd January 2013 ####
 * Created the first version of the script based on previous created scripts.

@@ -24,7 +24,7 @@
             changeText			: false,
             showText			: this.text(),
             hideText			: 'Hide',
-            accordian 			: false,
+            accordion 			: false,
             openClass 			: 'cw_open',
             activeLinkMode 		: true,
             activeLinkClass 	: 'cw_active',
@@ -42,7 +42,7 @@
 		var prop = {
 			container		: null,
 			currentLink		: null,
-			accordians		: [],
+			accordions		: [],
 			internalLinks 	: [],
 		};
 
@@ -88,10 +88,10 @@
 					prop.container.addClass(settings.openClass);
 				});
 
-				// Close other accordians
-				if (settings.accordian) {
-					methods.hideAccordian();
-					prop.accordians.push(prop.container);
+				// Close other accordions
+				if (settings.accordion) {
+					methods.hideAccordion();
+					prop.accordions.push(prop.container);
 				}
 			},
 			hide: function($this) {
@@ -112,20 +112,20 @@
 					}
 				});
 			},
-			hideAccordian: function() {
+			hideAccordion: function() {
 				// Save current values
 				var o_container = prop.container;
 				var o_link = prop.currentLink;
 
-				// Check if the same accordian is being closed
-				if(prop.accordians.length && o_container.attr('id') === prop.accordians[0].attr('id')) {
-					// Remove the accordian
-					prop.accordians.shift();
+				// Check if the same accordion is being closed
+				if(prop.accordions.length && o_container.attr('id') === prop.accordions[0].attr('id')) {
+					// Remove the accordion
+					prop.accordions.shift();
 
 					return false;
 				}
 
-				$.each(prop.accordians,function(){
+				$.each(prop.accordions,function(){
 					prop.container = $(this);
 					prop.currentLink = $('[data-id="'+$(this).attr('id')+'"]');
 					methods.hide($(this));
@@ -135,8 +135,8 @@
 				prop.container = o_container;
 				prop.currentLink = o_link;
 
-				// Remove the accordian
-				prop.accordians.shift();
+				// Remove the accordion
+				prop.accordions.shift();
 			},
 			hideAll: function($el) {
 				$el.css({
